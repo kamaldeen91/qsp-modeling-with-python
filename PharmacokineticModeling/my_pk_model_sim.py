@@ -12,7 +12,7 @@ def single_dose_simulation(num_comp, n_days: int, dose_mg, c: int = 1):
     sim_time = time_for_single_dose(n_days)
     plt_stp = 0.1
 
-    y0 = np.concatenate([[dose_mg[0]], np.zeros(num_comp - 1)])
+    y0 = np.concatenate([[dose_mg], np.zeros(num_comp - 1)])
 
     par = model_parameters()
 
