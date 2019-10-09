@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 
 import numpy as np
 from matplotlib.pyplot import cm
+from pylab import *
 
 
 def plot_diff_single_dose(drug_doses, num_comp, num_days):
@@ -22,6 +23,30 @@ def plot_diff_single_dose(drug_doses, num_comp, num_days):
     plt.tick_params(direction='out', length=6, width=2, colors='k', labelsize=12,
                     color='k')
     plt.legend(fontsize=12)
+    plt.show()
+
+
+def plot_diff_dose(drug_doses, num_comp, num_days, comp_num):
+
+    fig = plt.figure(figsize=(10, 6))
+
+    for i in drug_doses:
+        if len(comp_num) == 1:
+
+            t0, C0 = single_dose_simulation(num_comp, num_days, i, comp_num)
+            plot(t0, C0)
+
+        else:
+
+            for (j, k) in enumerate(comp_num):
+
+                axes = fig.add_subplot(len(comp_num) / 2 + len(comp_num) % 2, 2, j+1, title=r'compartment {}'.format(k))
+
+                plt.tight_layout()
+                t0, C0 = single_dose_simulation(num_comp, num_days, i, k)
+
+                axes.plot(t0, C0, lw=2)
+
     plt.show()
 
 

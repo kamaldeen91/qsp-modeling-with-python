@@ -179,9 +179,8 @@ def plot_multi_dose_output(time, C, num_dose, interval, figsize: tuple=(12,6),
     plt.show()
 
 
-def plot_single_dose_output(time, C, figsize: tuple=(12,6),
-                ylabel: str = 'concentration', yunit: str = 'ng/ml', tS: int = 0,
-                tC: any = 'inf', show_auc: bool = False, show_max: bool = False, **kwargs):
+def plot_single_dose_output(time, C, figsize: tuple=(12,6), yunit: str = 'ng/ml', title: any = 'Central',
+                            show_auc: bool = False, tS: int = 0, tC: any = 'inf', show_max: bool = False):
 
     res = pd.DataFrame([time, C], index=['Time', 'Conc']).T
 
@@ -194,7 +193,7 @@ def plot_single_dose_output(time, C, figsize: tuple=(12,6),
 
     fig = plt.figure(figsize=figsize)
 
-    ax = fig.add_subplot(111)
+    ax = fig.add_subplot(1, 1, 1)
 
     for axis in ['bottom', 'left']:
         ax.spines[axis].set_linewidth(2.0)
@@ -204,7 +203,9 @@ def plot_single_dose_output(time, C, figsize: tuple=(12,6),
 
     ax.plot(time, C, 'k-', lw=2)
 
-    ax.set_ylabel(r'{} ({})'.format(ylabel, yunit), fontsize=16)
+    ax.set_title(title)
+
+    ax.set_ylabel(r'Concentration ({})'.format(yunit), fontsize=16)
     ax.set_xlabel('time (hr)', fontsize=16)
     ax.tick_params(direction='out', length=6, width=2, colors='k', labelsize=12,
                    color='k')
