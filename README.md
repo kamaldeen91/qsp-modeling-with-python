@@ -40,7 +40,7 @@ I have spent time and enjoyed reading qsp-related articles, especially, to updat
 
 While several articles have used these tools to analyze and characterize different drugs and dosage regimens, some researchers have carried out survey on the usage and user experience of these tools - this I found very thoughful of the authors as well as important for the progress of qsp modeling.
 
-I will not be discussing about the result of the survey, but instead to highlight the fact that no Python-driven qsp code was highlighted in the article, despite in the increasing popularity of Python for simulations.
+I will not be discussing about the result of the survey, but instead to highlight the fact that no Python-driven qsp code was included in the survey, despite in the increasing popularity of Python for simulations.
 
 This is not to say that these tools are not efficient as I have only used SymBiology, but most importantly, I want to contribute to the available modling tools, to use Python to develop, analyze and simulate qsp models.
 
