@@ -38,7 +38,7 @@ I look forward to a career as a QSP modeler and expert in a pharmaceutical resea
 
 I have spend time and enjoyed reading qsp-related articles, especially, to update myself on qsp modeling tools. Most notable qsp modeling tools include NONNEM, Winnonlin by , SymBiology - Matlab. 
 
-While several articles have used these tools to analyze and characterize different drugs and dosage regimens, some researchers have carried out survey on the usage and user experience of these tools - this I find very thoughful of the research and important for the continuous development of qsp modeling tools.
+While several articles have used these tools to analyze and characterize different drugs and dosage regimens, some researchers have carried out survey on the usage and user experience of these tools - this I found very thoughful of the authors as well as important for the progress of qsp modeling.
 
 I will not be discussing about the result of the survey, but instead to highlight the fact that no Python-driven qsp code was highlighted in the article, despite in the increasing popularity of python for machine learning and data analysis.
 
