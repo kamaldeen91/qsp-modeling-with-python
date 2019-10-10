@@ -8,7 +8,7 @@ Kamaldeen is an applied mathematician by training and he has a profound interest
 ##### Kamaldeen:
 PK/PD modeling is interesting and I have enjoyed it so far. I enrolled in the HMX Fundamentals program (Harvard Medical School online learning platform) for Pharmacology and immunology to improve my basic knowledge of the pharmacology, necessary to design PK/PD models.
 
-I look forward to a career as a QSP modeller and expert in a pharmaceutical company (and maybe in the near future - in an academic environment as I love to teach).
+I look forward to a career as a QSP modeler and expert in a pharmaceutical research industry (and maybe in the near future - in an academic environment as I love to teach).
 
 I have spend time and enjoyed reading qsp-related articles, especially, to update myself on qsp modeling tools. Most notable qsp modeling tools include NONNEM, Winnonlin by , SymBiology - Matlab. While several articles have used these tools to analyze, characterize or recommend drugs and different dosage regimens, some researchers have carried out survey on the usage and user experience of these tools - this I find very thoughful of the research and important for the continuous development of qsp modeling tools.
 
