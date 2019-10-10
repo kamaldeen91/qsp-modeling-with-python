@@ -10,7 +10,9 @@ PK/PD modeling is interesting and I have enjoyed it so far. I enrolled in the HM
 
 I look forward to a career as a QSP modeler and expert in a pharmaceutical research industry (and maybe in the near future - in an academic environment as I love to teach).
 
-I have spend time and enjoyed reading qsp-related articles, especially, to update myself on qsp modeling tools. Most notable qsp modeling tools include NONNEM, Winnonlin by , SymBiology - Matlab. While several articles have used these tools to analyze, characterize or recommend drugs and different dosage regimens, some researchers have carried out survey on the usage and user experience of these tools - this I find very thoughful of the research and important for the continuous development of qsp modeling tools.
+I have spend time and enjoyed reading qsp-related articles, especially, to update myself on qsp modeling tools. Most notable qsp modeling tools include NONNEM, Winnonlin by , SymBiology - Matlab. 
+
+While several articles have used these tools to analyze and characterize different drugs and dosage regimens, some researchers have carried out survey on the usage and user experience of these tools - this I find very thoughful of the research and important for the continuous development of qsp modeling tools.
 
 I will not be discussing about the result of the survey, but instead to highlight the fact that no Python-driven qsp code was highlighted in the article, despite in the increasing popularity of python for machine learning and data analysis.
 
