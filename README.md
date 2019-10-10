@@ -1,5 +1,31 @@
 # qsp-modeling-with-python (pqsp) by Kamaldeen
-Python codes to facilitate quantitative system pharmacology (QSP) modeling
+Python codes to facilitate quantitative system pharmacology (QSP) modeling.
+(Please see below to code-manual to read about me)
+
+### See details below for step by step running of the codes
+
+First, so you will find very little comments in the code. That is why I have (1) explain each folder and .py files here (2) attached a pdf file indicating the same thing: pqsp-CodeManual (3) made a short introductory video of the code - . 
+
+I prefer clean and well organized (see through) codes. For more details on PK modeling (history, formulation and analytic solutions), see 
+(1)
+(2)
+(3)
+
+### General overview - pqsp-CodeMaunal
+
+#### Pharmacokinetic modeling
+
+
+I have included the default one-and two-compartment models with simulations that will require only the model parameter inputs.
+
+These models also use the simulation time and simulation plots mentioned above.
+
+#### pqsp One-compartment model
+
+#### pqsp Two-compartment model
+Same as above but with the equation given by
+
+
 
 ### About me
 
@@ -19,13 +45,4 @@ I will not be discussing about the result of the survey, but instead to highligh
 This is not to say these tools are not efficient - I have not tried everything myself except SymBiology. More importantly, I want to contribute to the available modling tools. That is why I have spend time writing this qsp modeling, analysis and simulation in Python.
 
 And also, to boost my profile during job application and interviews (hopefully).
-
-Enough said! Lets start coding!
-
-
-### See details below for step by step running of the codes
-
-First, when it comes to coding, I like clean and well organized (see through) codes, so you will find very little comments in the code. That is why I have (1) explain each folder and .py files here (2) attached a pdf file indicating the same thing - code manual (3) made a short introductory video of the code.
-
-### General overview
 
