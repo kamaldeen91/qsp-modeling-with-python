@@ -6,7 +6,7 @@ Python codes to facilitate quantitative system pharmacology (QSP) modeling.
 
 PS: you will find very little comments in the codes and that is the reseaon I have (1) explain each folder and .py files here (2) attached a pdf file indicating the same thing: pqsp-CodeManual (3) made a short introductory video of the code - . 
 
-I prefer clean and well organized (see through) codes. For more details on PK modeling (history, formulation and analytic solutions), see 
+I prefer clean and well organized (see through) codes. For more details on QSP pharmacokinetic-pharmacodynamic (PK/PD) modeling (history, formulation and analytic solutions), see 
 (1)
 (2)
 (3)
@@ -29,7 +29,7 @@ Same as above but with the equation given by
 
 ### About me
 
-Kamaldeen is an applied mathematician by training and he has a profound interest in quantitative pharmacology research. Specifically, he is interested in designing, analyzing and simulating pharmacokinetic-pharmacodynamic (PK/PD) models to help inform pre-clinical development of drugs.
+Kamaldeen is an applied mathematician by training and he has a profound interest in quantitative pharmacology research. Specifically, he is interested in designing, analyzing and simulating PK/PD models to help inform pre-clinical development of drugs.
 
 ##### Kamaldeen:
 PK/PD modeling is interesting and I have enjoyed it so far. I enrolled in the HMX Fundamentals program (Harvard Medical School online learning platform) for Pharmacology and immunology to improve my basic knowledge of the pharmacology, necessary to design PK/PD models.
