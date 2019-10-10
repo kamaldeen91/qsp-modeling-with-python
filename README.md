@@ -36,7 +36,7 @@ PK/PD modeling is interesting and I have enjoyed it so far. I enrolled in the HM
 
 I look forward to a career as a QSP modeler and expert in a pharmaceutical research industry (and maybe in the near future - in an academic environment as I love to teach).
 
-I have spend time and enjoyed reading qsp-related articles, especially, to update myself on qsp modeling tools. Most notable qsp modeling tools include NONNEM, Winnonlin by , SymBiology - Matlab. 
+I have spend time and enjoyed reading qsp-related articles, especially, to update myself on qsp modeling tools. Most notable qsp modeling tools include R, NONNEM, Phoenix Winnonlin by , SymBiology - Matlab. 
 
 While several articles have used these tools to analyze and characterize different drugs and dosage regimens, some researchers have carried out survey on the usage and user experience of these tools - this I found very thoughful of the authors as well as important for the progress of qsp modeling.
 
