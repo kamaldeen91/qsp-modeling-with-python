@@ -3,7 +3,7 @@ Python codes to facilitate quantitative system pharmacology (QSP) modeling
 
 ### About me
 
-First, Kamaldeen is an applied mathematician by training and he has a profound interest in quantitative pharmacology research. Specifically, designing, analyzing and simulating system of ODEs (pharmacokinetic (PK) model) to inform pre-clinical development of drugs - it's interesting and I have enjoyed it so far.
+First, Kamaldeen is an applied mathematician by training and he has a profound interest in quantitative pharmacology research. Specifically, he is interested designing, analyzing and simulating system of ODEs (pharmacokinetic (PK) model) to inform pre-clinical development of drugs - it's interesting and I have enjoyed it so far.
 
 ##### Kamaldeen:
 I enrolled in the HMX fundamental program for Pharmacology and immunology to improve my basic knowledge of the pharmacology, necessary to design PK/PD models.
