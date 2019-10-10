@@ -4,7 +4,7 @@ Python codes to facilitate quantitative system pharmacology (QSP) modeling.
 
 ### See details below for step by step running of the codes
 
-PS: you will find very little comments in the codes and that is the reseaons I have (1) explain each folder and .py files here (2) attached a pdf file indicating the same thing: pqsp-CodeManual (3) made a short introductory video of the code - . 
+PS: you will find very little comments in the codes and that is the reseaon I have (1) explain each folder and .py files here (2) attached a pdf file indicating the same thing: pqsp-CodeManual (3) made a short introductory video of the code - . 
 
 I prefer clean and well organized (see through) codes. For more details on PK modeling (history, formulation and analytic solutions), see 
 (1)
