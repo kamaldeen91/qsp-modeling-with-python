@@ -29,7 +29,7 @@ Same as above but with the equation given by
 
 ### About me
 
-Kamaldeen is an applied mathematician by training and he has a profound interest in quantitative pharmacology research. Specifically, he is interested in designing, analyzing and simulating pharmacokinetic-pharmacodynamic (PK/PD) models to inform pre-clinical development of drugs.
+Kamaldeen is an applied mathematician by training and he has a profound interest in quantitative pharmacology research. Specifically, he is interested in designing, analyzing and simulating pharmacokinetic-pharmacodynamic (PK/PD) models to help inform pre-clinical development of drugs.
 
 ##### Kamaldeen:
 PK/PD modeling is interesting and I have enjoyed it so far. I enrolled in the HMX Fundamentals program (Harvard Medical School online learning platform) for Pharmacology and immunology to improve my basic knowledge of the pharmacology, necessary to design PK/PD models.
