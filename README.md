@@ -22,7 +22,7 @@ In pk_model_simulation.py, the model can be simulated for single dose (single_do
 
 ###### single_dose_simulation(num_comp, n_days: int, dose_mg, c)
 
-num_comp = number of compartment, n_days = number of days to run the simulation, dose_mg = concentration of drug; c = compartment you would like to output (for instance, c = 1 will provide results for the central comparment)
+num_comp = number of compartment, n_days = number of days to run the simulation, dose_mg = concentration of drug; c = compartment you would like to output (for instance, c = 1 will provide results for the second comparment). Python counts from 0...
 
 ##### For multiple dose simulation
 
