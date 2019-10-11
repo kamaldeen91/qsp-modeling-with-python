@@ -14,7 +14,7 @@ For more details on QSP pharmacokinetic-pharmacodynamic (PK/PD) modeling (histor
 ### General overview - pqsp-CodeMaunal
 
 #### Pharmacokinetic modeling
-#run_example 
+To run a pharmacokinetic model of your choice, you should provide the model formulation and parameter values using the format provided in #model_and_par.py #run_example.py execute the code.
 
 I have included the default one-and two-compartment models with simulations that will require only the model parameter inputs.
 
