@@ -4,9 +4,9 @@ Python codes to facilitate quantitative system pharmacology (QSP) modeling.
 
 ### See details below for step by step running of the codes
 
-PS: you will find very little comments in the codes and that is the reseaon I have (1) explain each folder and .py files here (2) attached a pdf file indicating the same thing: pqsp-CodeManual (3) made a short introductory video of the code - . 
+PS: Very little comments are provided in the codes and that is the reseaon I have (1) explain each folder and .py files here (2) attached a pdf file indicating the same thing: pqsp-CodeManual (3) made a short introductory video of the code - . 
 
-I prefer clean and well organized (see through) codes. For more details on QSP pharmacokinetic-pharmacodynamic (PK/PD) modeling (history, formulation and analytic solutions), see 
+For more details on QSP pharmacokinetic-pharmacodynamic (PK/PD) modeling (history, formulation and analytic solutions), see 
 (1)
 (2)
 (3)
@@ -14,7 +14,7 @@ I prefer clean and well organized (see through) codes. For more details on QSP p
 ### General overview - pqsp-CodeMaunal
 
 #### Pharmacokinetic modeling
-
+#run_example 
 
 I have included the default one-and two-compartment models with simulations that will require only the model parameter inputs.
 
@@ -43,6 +43,3 @@ While several articles have used these tools to analyze and characterize differe
 I will not be discussing about the result of the survey, but instead to highlight the fact that no Python-driven qsp code was included in the survey, despite in the increasing popularity of Python for simulations.
 
 This is not to say that these tools are not efficient as I have only used SymBiology, but most importantly, I want to contribute to the available modling tools, to use Python to develop, analyze and simulate qsp models.
-
-And also, to boost my profile during job application and interviews (hopefully).
-
