@@ -1,5 +1,5 @@
 # qsp-modeling-with-python (pqsp) by Kamaldeen
-Python codes to facilitate quantitative system pharmacology (QSP) modeling.
+These are Python codes to facilitate quantitative system pharmacology (QSP) modeling.
 (Please see below to code-manual to read about me)
 
 ### See details below for step by step running of the codes
