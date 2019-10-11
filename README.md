@@ -20,41 +20,34 @@ In pk_model_simulation.py, the model you have provided can be simulated for sing
 
 ##### For single dose simulation, the function require
 
-def single_dose_simulation(num_comp, n_days: int, dose_mg, c: int = 1)
+###### single_dose_simulation(num_comp, n_days: int, dose_mg, c: int = 1)
 
 num_comp = number of compartment, n_days = number of days to run the simulation, dose_mg = concentration of drug; c = compartment you would like to output (for instance, c = 1 by default will provide simulations for the central comparment)
 
 ##### For multiple dose simulation, the function require in addition to above
 
-def multi_dose_simulation(num_comp, n_days: int, num_dose: int, interval, dose_mg, c: int = 1)
+###### multi_dose_simulation(num_comp, n_days: int, num_dose: int, interval, dose_mg, c: int = 1)
 
 num_dose = amount of time to take of dose, interval = time interval between drug intake 
 
 For instance:
-
 ###### multi_dose_simulation(3, 7, 3, 24, 100, 1) 
-
 will simulate the 3 system of ODE model (with parameters provided in #pk_model_and_par.py) for 7 days for drug of 100mg/l taken 3 times every 24 hours - and provide an output for the central compartment (c = 1)
 
 ##### For multiple dose with delay simulation, the function require in addition to above
 
-multi_dose_sim_delay(num_comp, n_days: int, num_dose: int, interval, dose_mg, delay, c: int = 1):
+###### multi_dose_sim_delay(num_comp, n_days: int, num_dose: int, interval, dose_mg, delay, c: int = 1):
 
 delay = array of delay during drug intake.
 
 For instance:
-
 ###### multi_dose_sim_delay(3, 7, 3, 24, 100, [5, 0], 1) 
-
 will simulate similar scenario as above but with 5 hr delay in the intake of the second drug and no delay in intake of third (final) dose of a 3 dose regimen.
 
 
-#### To execute/display the simulation
-
 ### Simulation plot - model_simulation_plots.py
 
-This include 
-
+This include
 ###### single_dose_plot(drug_doses, num_comp, num_days, comp)
 
 where drug_dose is an array of the drug dose(s) to be taken
@@ -62,7 +55,6 @@ num_comp, num_days are as defined above as number of model compartments and numb
 comp = array of compartment to be plotted
 
 For instance (as written in run_example1.py):
-
 ###### single_dose_plot([200, 400], 3, 10, [1,2,3])
 will plot the 3 ODE models (defined in pk_model_and_par.py) for 10 days and plot the third and fourth compartments of the model for two drug dose 200mg/l and 400mg/l.
 
@@ -86,19 +78,15 @@ plot_multi_dose_output(t1, C1, num_dose, interval, (10, 6), 'concentration', 'ng
 ### In-built one-and two-compartment models
 
 I have also included one-and two-compartment pk models in the folders OneComparment and TwoComparment respectively.
-
 These codes will require only the model parameter inputs which is given in one_comp_model_parameters.py and two_comp_model_parameters.py
-
-run_example_1C.py and run_example_2C.py for examples.
+See run_example_1C.py and run_example_2C.py for examples.
 
 
 ### Simulation time - simulation_time.py
-All the simulation uses simulation time that has been defined simulation_time.py which include
+All the simulation uses simulation time that has been defined simulation_time.py which include:
 
 def time_for_single_dose for single dose simulation time
-
 def time_for_multi_dose for multiple dose simulation time
-
 and time_for_multi_dose_delay for multiple dose with delay simulation time
 
 
