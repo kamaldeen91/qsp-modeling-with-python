@@ -32,7 +32,7 @@ num_dose = amount of time to take of dose, interval = time interval between drug
 
 For instance:
 ###### multi_dose_simulation(3, 7, 3, 24, 100, 1) 
-will simulate the 3 system of ODE model (with parameters provided in #pk_model_and_par.py) for 7 days for drug of 100mg/l taken 3 times every 24 hours - and provide an output for the central compartment (c = 1)
+will simulate the 3 system of ODE (provided in pk_model_and_par.py) for 7 days, for drug of conc = 100mg/l taken 3 times every 24 hours - and provide an output for the central compartment (c = 1)
 
 ##### For multiple dose with delay simulation
 
