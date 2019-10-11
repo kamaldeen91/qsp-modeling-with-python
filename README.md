@@ -15,7 +15,7 @@ For more details on QSP pharmacokinetic-pharmacodynamic (PK/PD) modeling (histor
 
 #### Pharmacokinetic modeling
 To run a pharmacokinetic model of your choice, go to the folder PharmacokineticModeling and provide the ODE model formulation and parameter values using the format provided in 
-## pk_model_and_par.py. 
+##### pk_model_and_par.py. 
 
 Notice that the model function (def my_model) and the parameter values is named (def model_parameters). Do not change this as the model and paraemeters are called in #pk_model_simulation.py where all model analysis is carried out.
 
