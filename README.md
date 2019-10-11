@@ -6,7 +6,7 @@ Python codes to facilitate quantitative system pharmacology (QSP) modeling.
 
 PS: Very little comments are provided in the codes and that is the reseaon I have (1) explain each folder and .py files here (2) attached a pdf file indicating the same thing: pqsp-CodeManual (3) made a short introductory video of the code - . 
 
-### General overview - pqsp-CodeMaunal
+### pqsp-CodeMaunal
 
 To run a pharmacokinetic model of your choice, go to the folder PharmacokineticModeling and provide the ODE model formulation and parameter values using the format provided in
 
