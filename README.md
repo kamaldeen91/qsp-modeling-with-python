@@ -13,7 +13,6 @@ For more details on QSP pharmacokinetic-pharmacodynamic (PK/PD) modeling (histor
 
 ### General overview - pqsp-CodeMaunal
 
-#### Pharmacokinetic modeling
 To run a pharmacokinetic model of your choice, go to the folder PharmacokineticModeling and provide the ODE model formulation and parameter values using the format provided in 
 ##### pk_model_and_par.py
 
@@ -28,18 +27,21 @@ def single_dose_simulation(num_comp, n_days: int, dose_mg, c: int = 1)
 
 num_comp = number of compartment, n_days = number of days to run the simulation, dose_mg = concentration of drug; c = compartment you would like to output (for instance, c = 1 by default will provide simulations for the central comparment)
 
-For multiple dose simulation, the function require in addition to above
+###### For multiple dose simulation, the function require in addition to above
 
-multi_dose_simulation(num_comp, n_days: int, num_dose: int, interval, dose_mg, c: int = 1)
+def multi_dose_simulation(num_comp, n_days: int, num_dose: int, interval, dose_mg, c: int = 1)
 
 num_dose = amount of time to take of dose, interval = time interval between drug intake 
 
 For instance num_dose = multi_dose_simulation(3, 7, 3, 24, 100, 1) will simulate the 3 system of ODE model (with parameters provided in #pk_model_and_par.py) for 7 days for drug of 100mg/l taken 3 times every 24 hours - and provide an output for the central compartment (c = 1)
 
+###### For multiple dose simulation, the function require in addition to above
+
 multi_dose_sim_delay(num_comp, n_days: int, num_dose: int, interval, dose_mg, delay, c: int = 1):
   
 
-#run_example.py execute the code.
+#### To execute or display the simulation
+run_example.py execute the code.
 
 I have included the default one-and two-compartment models with simulations that will require only the model parameter inputs.
 
