@@ -52,14 +52,17 @@ multi_dose_sim_delay(3, 7, 3, 24, 100, [5, 0], 1)
 will simulate similar scenario as above but with 5 hr delay in the intake of the second drug and no delay in intake of third (final) dose of a 3 dose regimen.
 
 
-#### To execute or display the simulation
-run_example.py execute the code.
+#### To execute/display the simulation
+I have provide two examples - run_example1.py and run_example2.py with both having different formating.
+
+
 
 I have included the default one-and two-compartment models with simulations that will require only the model parameter inputs.
 
 These models also use the simulation time and simulation plots mentioned above.
 
 #### pqsp One-compartment model
+$k=0$
 
 #### pqsp Two-compartment model
 Same as above but with the equation given by
