@@ -50,7 +50,7 @@ will simulate similar scenario as above but with 5 hr delay in the intake of the
 This include
 ###### single_dose_plot(drug_doses, num_comp, num_days, comp)
 
-where drug_dose is an array of the drug dose(s) to be taken
+where drug_dose is an array of the drug concentration
 num_comp, num_days are as defined above as number of model compartments and number days to run simulation,
 comp = array of compartment to be plotted
 
