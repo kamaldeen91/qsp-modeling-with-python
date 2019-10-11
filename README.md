@@ -15,13 +15,14 @@ For more details on QSP pharmacokinetic-pharmacodynamic (PK/PD) modeling (histor
 
 #### Pharmacokinetic modeling
 To run a pharmacokinetic model of your choice, go to the folder PharmacokineticModeling and provide the ODE model formulation and parameter values using the format provided in 
-##### pk_model_and_par.py. 
+##### pk_model_and_par.py
 
-Notice that the model function (def my_model) and the parameter values is named (def model_parameters). Do not change this as the model and paraemeters are called in #pk_model_simulation.py where all model analysis is carried out.
+Notice that the model function (def my_model) and the parameter values is named (def model_parameters). Do not change this as the model and paraemeters are called in 
+##### pk_model_simulation.py -- where all model analysis is carried out.
 
 In ## pk_model_simulation.py, the model you have provided can be simulated for single dose (def single_dose_simulation), multiple dose (def multi_dose_simulation) and multiple dose with delay (def multi_dose_sim_delay) - nice!
 
-For single dose simulation, the function require
+###### For single dose simulation, the function require
 
 def single_dose_simulation(num_comp, n_days: int, dose_mg, c: int = 1)
 
