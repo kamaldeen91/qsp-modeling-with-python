@@ -14,7 +14,30 @@ For more details on QSP pharmacokinetic-pharmacodynamic (PK/PD) modeling (histor
 ### General overview - pqsp-CodeMaunal
 
 #### Pharmacokinetic modeling
-To run a pharmacokinetic model of your choice, you should provide the model formulation and parameter values using the format provided in #model_and_par.py #run_example.py execute the code.
+To run a pharmacokinetic model of your choice, go to the folder PharmacokineticModeling and provide the ODE model formulation and parameter values using the format provided in #pk_model_and_par.py. 
+
+Notice that the model function (def my_model) and the parameter values is named (def model_parameters). Do not change this as the model and paraemeters are called in #pk_model_simulation.py where all model analysis is carried out.
+
+In #pk_model_simulation.py, the model you have provided can be simulated for single dose (def single_dose_simulation), multiple dose (def multi_dose_simulation) and multiple dose with delay (def multi_dose_sim_delay) - nice!
+
+For single dose simulation, the function require
+
+def single_dose_simulation(num_comp, n_days: int, dose_mg, c: int = 1)
+
+num_comp = number of compartment, n_days = number of days to run the simulation, dose_mg = concentration of drug; c = compartment you would like to output (for instance, c = 1 by default will provide simulations for the central comparment)
+
+For multiple dose simulation, the function require in addition to above
+
+multi_dose_simulation(num_comp, n_days: int, num_dose: int, interval, dose_mg, c: int = 1)
+
+num_dose = amount of time to take of dose, interval = time interval between drug intake 
+
+For instance num_dose = multi_dose_simulation(3, 7, 3, 24, 100, 1) will simulate the 3 system of ODE model (with parameters provided in #pk_model_and_par.py) for 7 days for drug of 100mg/l taken 3 times every 24 hours - and provide an output for the central compartment (c = 1)
+
+multi_dose_sim_delay(num_comp, n_days: int, num_dose: int, interval, dose_mg, delay, c: int = 1):
+  
+
+#run_example.py execute the code.
 
 I have included the default one-and two-compartment models with simulations that will require only the model parameter inputs.
 
