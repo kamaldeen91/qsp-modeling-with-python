@@ -16,7 +16,7 @@ The model (my_model) and the parameter values (model_parameters) are simulated i
 
 #### pk_model_simulation.py -- where all model analysis is carried out.
 
-In pk_model_simulation.py, the model can be simulated for single dose (def single_dose_simulation), multiple dose (def multi_dose_simulation) and multiple dose with delay (def multi_dose_sim_delay) - nice!
+In pk_model_simulation.py, the model can be simulated for single dose (single_dose_simulation), multiple dose (multi_dose_simulation) and multiple dose with delay (multi_dose_sim_delay) - nice!
 
 ##### For single dose simulation, the function require
 
