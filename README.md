@@ -87,11 +87,9 @@ See run_example_1C.py and run_example_2C.py for examples.
 ### Simulation time - simulation_time.py
 All the simulation uses simulation time that has been defined simulation_time.py which include:
 
-time_for_single_dose for single_dose_simulation
-
-time_for_multi_dose for multi_dose_simulation
-
-time_for_multi_dose_delay for multi_dose_sim_delay
+time_for_single_dose for single_dose_simulation;
+time_for_multi_dose for multi_dose_simulation;
+time_for_multi_dose_delay for multi_dose_sim_delay.
 
 
 ##
