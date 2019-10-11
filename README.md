@@ -59,7 +59,7 @@ For instance (as written in run_example1.py):
 will plot the 3 ODE models (defined in pk_model_and_par.py) for 10 days and plot the second and third compartments of the model for two drug dose 200mg/l and 400mg/l.
 
 ###### multi_dose_plot(drug_doses, num_comp, num_days, num_dose, interval, comp)
-will plot the same compartments and doses for multiple drugs
+will plot the same compartments and doses for multiple drugs.
 
 ###### multi_dose_with_delay_plot(drug_doses, num_comp, num_days, num_dose, interval, delay, comp)
 will plot the same compartments and doses for multiple drugs with delay.
@@ -79,7 +79,8 @@ plot_multi_dose_output(t1, C1, num_dose, interval, (10, 6), 'concentration', 'ng
 
 I have also included one-and two-compartment pk models in the folders OneComparment and TwoComparment respectively.
 
-These codes will require only the model parameter inputs which is given in one_comp_model_parameters.py and two_comp_model_parameters.py
+These codes will require only the model parameter inputs which is given in one_comp_model_parameters.py and two_comp_model_parameters.py.
+
 See run_example_1C.py and run_example_2C.py for examples.
 
 
