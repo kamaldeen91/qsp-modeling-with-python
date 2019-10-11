@@ -12,7 +12,7 @@ To run a pharmacokinetic model of your choice, go to the folder PharmacokineticM
 
 #### pk_model_and_par.py
 
-Notice that the model function (def my_model) and the parameter values is named (def model_parameters). Do not change this as the model and paraemeters are called in
+Notice that the model function (my_model) and the parameter values is named (model_parameters). Do not change this as the model and paraemeters are called in
 
 #### pk_model_simulation.py -- where all model analysis is carried out.
 
