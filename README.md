@@ -18,7 +18,7 @@ To run a pharmacokinetic model of your choice, go to the folder PharmacokineticM
 
 Notice that the model function (def my_model) and the parameter values is named (def model_parameters). Do not change this as the model and paraemeters are called in #pk_model_simulation.py where all model analysis is carried out.
 
-In #pk_model_simulation.py, the model you have provided can be simulated for single dose (def single_dose_simulation), multiple dose (def multi_dose_simulation) and multiple dose with delay (def multi_dose_sim_delay) - nice!
+In ##pk_model_simulation.py, the model you have provided can be simulated for single dose (def single_dose_simulation), multiple dose (def multi_dose_simulation) and multiple dose with delay (def multi_dose_sim_delay) - nice!
 
 For single dose simulation, the function require
 
