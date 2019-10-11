@@ -18,13 +18,13 @@ The model (my_model) and the parameter values (model_parameters) are simulated i
 
 In pk_model_simulation.py, the model can be simulated for single dose (single_dose_simulation), multiple dose (multi_dose_simulation) and multiple dose with delay (multi_dose_sim_delay) - nice!
 
-##### For single dose simulation, the function require
+##### For single dose simulation
 
 ###### single_dose_simulation(num_comp, n_days: int, dose_mg, c)
 
 num_comp = number of compartment, n_days = number of days to run the simulation, dose_mg = concentration of drug; c = compartment you would like to output (for instance, c = 1 by default will provide simulations for the central comparment)
 
-##### For multiple dose simulation, the function require in addition to above
+##### For multiple dose simulation
 
 ###### multi_dose_simulation(num_comp, n_days: int, num_dose: int, interval, dose_mg, c)
 
@@ -34,7 +34,7 @@ For instance:
 ###### multi_dose_simulation(3, 7, 3, 24, 100, 1) 
 will simulate the 3 system of ODE model (with parameters provided in #pk_model_and_par.py) for 7 days for drug of 100mg/l taken 3 times every 24 hours - and provide an output for the central compartment (c = 1)
 
-##### For multiple dose with delay simulation, the function require in addition to above
+##### For multiple dose with delay simulation
 
 ###### multi_dose_sim_delay(num_comp, n_days: int, num_dose: int, interval, dose_mg, delay, c):
 
