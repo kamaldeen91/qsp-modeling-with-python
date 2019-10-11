@@ -20,13 +20,13 @@ In pk_model_simulation.py, the model you have provided can be simulated for sing
 
 ##### For single dose simulation, the function require
 
-###### single_dose_simulation(num_comp, n_days: int, dose_mg, c: int = 1)
+###### single_dose_simulation(num_comp, n_days: int, dose_mg, c)
 
 num_comp = number of compartment, n_days = number of days to run the simulation, dose_mg = concentration of drug; c = compartment you would like to output (for instance, c = 1 by default will provide simulations for the central comparment)
 
 ##### For multiple dose simulation, the function require in addition to above
 
-###### multi_dose_simulation(num_comp, n_days: int, num_dose: int, interval, dose_mg, c: int = 1)
+###### multi_dose_simulation(num_comp, n_days: int, num_dose: int, interval, dose_mg, c)
 
 num_dose = amount of time to take of dose, interval = time interval between drug intake 
 
@@ -36,7 +36,7 @@ will simulate the 3 system of ODE model (with parameters provided in #pk_model_a
 
 ##### For multiple dose with delay simulation, the function require in addition to above
 
-###### multi_dose_sim_delay(num_comp, n_days: int, num_dose: int, interval, dose_mg, delay, c: int = 1):
+###### multi_dose_sim_delay(num_comp, n_days: int, num_dose: int, interval, dose_mg, delay, c):
 
 delay = array of delay during drug intake.
 
