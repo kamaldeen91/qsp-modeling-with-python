@@ -24,9 +24,9 @@ In pk_model_simulation.py, the model can be simulated for single dose (single_do
 
 ##### For single dose simulation
 
-###### single_dose_simulation(num_comp, n_days: int, dose_mg, c)
+###### single_dose_simulation(num_comp, num_days: int, dose_mg, c)
 
-num_comp = number of compartment; n_days = number of days to run the simulation; dose_mg = concentration of drug; c = compartment you would like to output (for instance, c = 1 will provide results for the second comparment). Python counts from 0...
+num_comp = number of compartment; num_days = number of days to run the simulation; dose_mg = concentration of drug; c = compartment you would like to output (for instance, c = 1 will provide results for the second comparment). Python counts from 0...
 
 ##### For multiple dose simulation
 
@@ -55,9 +55,7 @@ will simulate similar scenario as above but with 5 hr delay in the intake of the
 This include
 ###### single_dose_plot(drug_doses, num_comp, num_days, comp)
 
-where drug_dose is an array of the drug concentration;
-num_comp, num_days are the number of model compartments and number days to run simulation, respectively;
-comp = array of compartment to be plotted
+where drug_dose is an array of the drug concentration; comp = array of compartment to be plotted
 
 For instance (as written in run_example1.py):
 ###### single_dose_plot([200, 400], 3, 10, [1,2])
