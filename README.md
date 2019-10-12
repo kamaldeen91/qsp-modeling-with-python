@@ -16,19 +16,19 @@ The model (my_model) and the parameter values (model_parameters) are simulated i
 
 #### pk_model_simulation.py -- where all model analysis is carried out.
 
-In pk_model_simulation.py, the model can be simulated for single dose (single_dose_simulation), multiple dose (multi_dose_simulation) and multiple dose with delay (multi_dose_sim_delay) - nice!
+In pk_model_simulation.py, the model can be simulated for single dose (single_dose_simulation); multiple dose (multi_dose_simulation); and multiple dose with delay (multi_dose_sim_delay) - nice!
 
 ##### For single dose simulation
 
 ###### single_dose_simulation(num_comp, n_days: int, dose_mg, c)
 
-num_comp = number of compartment, n_days = number of days to run the simulation, dose_mg = concentration of drug; c = compartment you would like to output (for instance, c = 1 will provide results for the second comparment). Python counts from 0...
+num_comp = number of compartment; n_days = number of days to run the simulation; dose_mg = concentration of drug; c = compartment you would like to output (for instance, c = 1 will provide results for the second comparment). Python counts from 0...
 
 ##### For multiple dose simulation
 
 ###### multi_dose_simulation(num_comp, n_days: int, num_dose: int, interval, dose_mg, c)
 
-num_dose = amount of time to take of dose, interval = time interval between drug intake 
+num_dose = number of time to take, interval = time interval between drug intake 
 
 For instance:
 ###### multi_dose_simulation(3, 7, 3, 24, 100, 1) 
@@ -50,23 +50,23 @@ will simulate similar scenario as above but with 5 hr delay in the intake of the
 This include
 ###### single_dose_plot(drug_doses, num_comp, num_days, comp)
 
-where drug_dose is an array of the drug concentration
-num_comp, num_days are as defined above as number of model compartments and number days to run simulation,
+where drug_dose is an array of the drug concentration;
+num_comp, num_days are the number of model compartments and number days to run simulation, respectively;
 comp = array of compartment to be plotted
 
 For instance (as written in run_example1.py):
 ###### single_dose_plot([200, 400], 3, 10, [1,2])
-will plot the 3 ODE models (defined in pk_model_and_par.py) for 10 days and plot the second and third compartments of the model for two drug dose 200mg/l and 400mg/l.
+will plot the 3 ODE models (defined in pk_model_and_par.py) for 10 days and plot the second and third compartments of the model for two drug doses - 200mg/l and 400mg/l.
 
 ###### multi_dose_plot(drug_doses, num_comp, num_days, num_dose, interval, comp)
-will plot the same compartments and doses for multiple drugs.
+will plot similar simulation for multple doses of 200mg/l and 400mg/l.
 
 ###### multi_dose_with_delay_plot(drug_doses, num_comp, num_days, num_dose, interval, delay, comp)
-will plot the same compartments and doses for multiple drugs with delay.
+will plot similar simulation for multple doses of 200mg/l and 400mg/l with delay.
 
 
 ### Simulation plot with AUC - plot_simulations_with_AUC.py
-This plot additional properties of the pharmacokinetics of the drug from the model simulation - see run_example2.py
+This plot show additional pharmacokinetics properties of the drug from the model simulation - see run_example2.py
 
 t, C = single_dose_simulation(num_comp, num_days, dose_1)
 plot_single_dose_output(t, C, (7, 5), 'ng/mL', 'central compartment', show_auc = True, tS=10, tC='inf', show_max = True)
