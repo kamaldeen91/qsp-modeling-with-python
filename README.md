@@ -48,6 +48,7 @@ For instance:
 ###### multi_dose_sim_delay(3, 7, 3, 24, 100, [5, 0], 1) 
 will simulate similar scenario as above but with 5 hr delay in the intake of the second drug and no delay in intake of third (final) dose of a 3 dose regimen.
 
+##
 
 ### Simulation plot - model_simulation_plots.py
 
@@ -68,6 +69,7 @@ will plot similar simulation for multple doses of 200mg/l and 400mg/l.
 ###### multi_dose_with_delay_plot(drug_doses, num_comp, num_days, num_dose, interval, delay, comp)
 will plot similar simulation for multple doses of 200mg/l and 400mg/l with delay.
 
+##
 
 ### Simulation plot with AUC - plot_simulations_with_AUC.py
 This plot show additional pharmacokinetics properties of the drug from the model simulation - see run_example2.py
@@ -78,8 +80,9 @@ plot_single_dose_output(t, C, (7, 5), 'ng/mL', 'central compartment', show_auc =
 t1, C1 = multi_dose_simulation(num_comp, num_days, num_dose, interval, [dose_1] * num_dose)
 plot_multi_dose_output(t1, C1, num_dose, interval, (10, 6), 'concentration', 'ng/mL', show_auc = True, show_max = True, tS=10, tC='inf')
 
+##
 
-### In-built one-and two-compartment models
+### One-and two-compartment models
 
 I have also included one-and two-compartment pk models in the folders OneComparment and TwoComparment respectively.
 
@@ -87,6 +90,7 @@ These codes will require only the model parameter inputs which is given in one_c
 
 See run_example_1C.py and run_example_2C.py for examples.
 
+##
 
 ### Simulation time - simulation_time.py
 All the simulation uses simulation time that has been defined simulation_time.py which include:
