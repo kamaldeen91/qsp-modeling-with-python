@@ -96,7 +96,7 @@ def plot_multi_dose_delay_output(time, C, num_dose, interval, delay, figsize: tu
 
 def plot_multi_dose_output(time, C, num_dose, interval, figsize: tuple=(12,6),
                 ylabel: str = 'concentration', yunit: str = 'ng/ml', tS: int = 0,
-                tC: any = 'inf', show_auc: bool = False, show_max: bool = False, **kwargs):
+                tC: any = 'inf', show_auc: bool = False, show_max: bool = False):
 
     res = pd.DataFrame([time, C], index=['Time', 'Conc']).T
 

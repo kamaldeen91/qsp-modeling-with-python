@@ -5,14 +5,15 @@ import matplotlib.pyplot as plt
 #######################################################################################################################
 
 
-def single_dose_plot(drug_doses, num_comp, num_days, comp_num, yunit: str = 'ng/l', figsize: tuple=(8,5)):
+def single_dose_plot(drug_doses, num_comp, simulation_time: any, time_unit: str, comp_num, yunit: str = 'ng/l', figsize: tuple=(8,5)):
 
     fig = plt.figure(figsize=figsize)
 
     for i in drug_doses:
+
         if len(comp_num) == 1:
 
-            time, conc = single_dose_simulation(num_comp, num_days, i, comp_num)
+            time, conc = single_dose_simulation(num_comp, simulation_time, time_unit, [i], comp_num)
             plot(time, conc, lw = 2, label=r'Dose = {}'.format(i))
 
             plt.tight_layout()
@@ -29,7 +30,7 @@ def single_dose_plot(drug_doses, num_comp, num_days, comp_num, yunit: str = 'ng/
 
                 axes = fig.add_subplot(len(comp_num) / 2 + len(comp_num) % 2, 2, j+1, title=r'compartment {}'.format(k))
 
-                time, conc = single_dose_simulation(num_comp, num_days, i, k)
+                time, conc = single_dose_simulation(num_comp, simulation_time, time_unit, [i], k)
 
                 axes.plot(time, conc, lw=2, label=r'Dose = {} {}'.format(i, yunit))
                 plt.tight_layout()
@@ -47,7 +48,7 @@ def single_dose_plot(drug_doses, num_comp, num_days, comp_num, yunit: str = 'ng/
 
 #######################################################################################################################
 
-def multi_dose_plot(drug_doses, num_comp, num_days, num_dose, interval, comp_num,
+def multi_dose_plot(drug_doses, num_comp, simulation_time: any, time_unit: str, num_dose, interval, comp_num,
                     yunit: str = 'ng/l', figsize: tuple=(10,6), show_hstep: bool=False):
 
     fig = plt.figure(figsize=figsize)
@@ -56,7 +57,7 @@ def multi_dose_plot(drug_doses, num_comp, num_days, num_dose, interval, comp_num
 
         if len(comp_num) == 1:
 
-            time, conc = multi_dose_simulation(num_comp, num_days, num_dose, interval, [i] * num_dose, comp_num)
+            time, conc = multi_dose_simulation(num_comp, simulation_time, time_unit, num_dose, interval, [i], comp_num)
 
             plot(time, conc, lw=2, label=r'Dose = {}'.format(i))
             plt.tight_layout()
@@ -82,7 +83,7 @@ def multi_dose_plot(drug_doses, num_comp, num_days, num_dose, interval, comp_num
                 axes = fig.add_subplot(len(comp_num) / 2 + len(comp_num) % 2, 2, j+1, title=r'compartment {}'.format(k))
 
                 plt.tight_layout()
-                time, conc = multi_dose_simulation(num_comp, num_days, num_dose, interval, [i] * num_dose, k)
+                time, conc = multi_dose_simulation(num_comp, simulation_time, time_unit, num_dose, interval, [i], k)
 
                 axes.plot(time, conc, lw=2, label=r'Dose = {} {}'.format(i, yunit))
 
@@ -107,22 +108,23 @@ def multi_dose_plot(drug_doses, num_comp, num_days, num_dose, interval, comp_num
 
 #######################################################################################################################
 
-def multi_dose_with_delay_plot(drug_doses, num_comp, num_days, num_dose, interval, delay, comp_num,
+def multi_dose_with_delay_plot(drug_doses, num_comp, simulation_time: any, time_unit: str, num_dose, interval, delay, comp_num,
                                yunit: str = 'ng/l', figsize: tuple=(10,6), show_hstep: bool=False):
 
     fig = plt.figure(figsize=figsize)
 
     for i in drug_doses:
+
         if len(comp_num) == 1:
 
-            time, conc = multi_dose_sim_delay(num_comp, num_days, num_dose, interval, [i] * num_dose, delay, comp_num)
+            time, conc = multi_dose_sim_delay(num_comp, simulation_time, time_unit, num_dose, interval, [i], delay, comp_num)
+
             plot(time, conc, lw=2, label=r'Dose = {} {}'.format(i, yunit))
             plt.tight_layout()
             plt.ylabel('Conc {}'.format(yunit), fontsize=12)
             plt.xlabel('time (hr)', fontsize=12)
 
-            plt.tick_params(direction='out', length=6, width=2, colors='k', labelsize=12,
-                            color='k')
+            plt.tick_params(direction='out', length=6, width=2, colors='k', labelsize=12, color='k')
             plt.legend(fontsize=12)
 
             if show_hstep == True:
@@ -142,7 +144,7 @@ def multi_dose_with_delay_plot(drug_doses, num_comp, num_days, num_dose, interva
                 axes = fig.add_subplot(len(comp_num) / 2 + len(comp_num) % 2, 2, j+1, title=r'compartment {}'.format(k))
 
                 plt.tight_layout()
-                time, conc = multi_dose_sim_delay(num_comp, num_days, num_dose, interval, [i] * num_dose, delay, k)
+                time, conc = multi_dose_sim_delay(num_comp, simulation_time, time_unit, num_dose, interval, [i], delay, k)
 
                 axes.plot(time, conc, lw=2, label=r'Dose = {} {}'.format(i, yunit))
 

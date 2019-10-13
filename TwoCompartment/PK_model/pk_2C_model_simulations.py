@@ -8,44 +8,63 @@ from TwoCompartment.PK_model.two_comp_model_parameters import pk_two_comp_model_
 
 from TwoCompartment.PK_model.two_comp_model import two_comp_model
 
+################################################################################################################################
 
-def two_comp_single_dose_simulation(n_days: int, dose_mg, c: int = 1):
 
-    sim_time = time_for_single_dose(n_days)
+def two_comp_single_dose_simulation(simulation_time: any, unit: str, dose_mg, c: int = 1):
+
+    sim_time = time_for_single_dose(simulation_time, unit)
     plt_stp = 0.1
 
     y0 = [dose_mg[0], 0, 0]
 
     par = pk_two_comp_model_parameters()
 
-    y1 = odeint(two_comp_model, y0, sim_time, par)
+    y = odeint(two_comp_model, y0, sim_time, par)
 
-    C = y1[:, c]
+    C = y[:, c]
     time = np.arange(0, len(C)) / (1 / plt_stp)
 
     return time, C
 
 
-def two_comp_multi_dose_simulation(n_days: int, num_dose: int, interval, dose_mg, c: int = 1):
+################################################################################################################################
 
-    sim_time = time_for_multi_dose(n_days, num_dose, interval)
+
+def two_comp_multi_dose_simulation(simulation_time: any, unit: str, num_dose: int, interval, dose_mg: any, c: int = 1):
+
+    sim_time = time_for_multi_dose(simulation_time, unit, num_dose, interval)
     plt_stp = 0.1
 
     y0 = [dose_mg[0], 0, 0]
+
     t = sim_time[0][0:]
 
     par = pk_two_comp_model_parameters()
 
     y1 = odeint(two_comp_model, y0, t, par)
+
     yy = y1; cconc = []; n_cc = []; nn_cc = []
 
     j = 1
-    while j < len(sim_time):
-        y_n = odeint(two_comp_model, [dose_mg[j] + yy[:, 0][-1], yy[:, 1][-1], yy[:, 2][-1]], sim_time[j][1:], par)
-        yy = y_n
-        j += 1
 
-        cconc.append(yy[:, c])
+    if len(dose_mg) == 1:
+
+        while j < len(sim_time):
+            y_n = odeint(two_comp_model, [dose_mg[0] + yy[:, 0][-1], yy[:, 1][-1], yy[:, 2][-1]], sim_time[j][1:], par)
+            yy = y_n
+            j += 1
+
+            cconc.append(yy[:, c])
+
+    else:
+
+        while j < len(sim_time):
+            y_n = odeint(two_comp_model, [dose_mg[j] + yy[:, 0][-1], yy[:, 1][-1], yy[:, 2][-1]], sim_time[j][1:], par)
+            yy = y_n
+            j += 1
+
+            cconc.append(yy[:, c])
 
     for i in range(len(cconc)):
         n_cc.append(list(cconc[i]))
@@ -57,9 +76,11 @@ def two_comp_multi_dose_simulation(n_days: int, num_dose: int, interval, dose_mg
     return time, C
 
 
-def two_comp_multi_dose_with_delay_simulation(n_days: int, num_dose: int, interval, dose_mg, delay, c: int = 1):
+########################################################################################################################
 
-    a = time_for_multi_dose_delay(n_days, num_dose, interval, delay)
+def two_comp_multi_dose_with_delay_simulation(simulation_time: any, unit: str, num_dose: int, interval, dose_mg, delay, c: int = 1):
+
+    a = time_for_multi_dose_delay(simulation_time, unit, num_dose, interval, delay)
     plt_stp = 0.1
 
     if num_dose - 1 != len(delay):
@@ -72,6 +93,7 @@ def two_comp_multi_dose_with_delay_simulation(n_days: int, num_dose: int, interv
 
     y1 = odeint(two_comp_model, y0, t, par)
     yy = y1; cconc = []; n_cc = []; nn_cc = []
+
     i = 1; new_time = []
 
     while i < len(delay):
@@ -83,12 +105,25 @@ def two_comp_multi_dose_with_delay_simulation(n_days: int, num_dose: int, interv
     new_time.append(a[-1][int(delay[-1] / plt_stp) + 1:])
 
     j = 0
-    while j < len(delay):
-        y_n = odeint(two_comp_model, [dose_mg[j + 1] + yy[:, 0][-1], yy[:, 1][-1], yy[:, 2][-1]], new_time[j][0:], par)
-        yy = y_n
-        j += 1
 
-        cconc.append(yy[:, c])
+    if len(dose_mg) == 1:
+
+        while j < len(delay):
+            y_n = odeint(two_comp_model, [dose_mg[0] + yy[:, 0][-1], yy[:, 1][-1], yy[:, 2][-1]], new_time[j][0:], par)
+            yy = y_n
+            j += 1
+
+            cconc.append(yy[:, c])
+
+    else:
+
+        while j < len(delay):
+            y_n = odeint(two_comp_model, [dose_mg[j + 1] + yy[:, 0][-1], yy[:, 1][-1], yy[:, 2][-1]], new_time[j][0:],
+                         par)
+            yy = y_n
+            j += 1
+
+            cconc.append(yy[:, c])
 
     for i in range(len(cconc)):
         n_cc.append(list(cconc[i]))
