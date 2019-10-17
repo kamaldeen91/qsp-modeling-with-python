@@ -1,6 +1,7 @@
 from model_simulation_plots import single_dose_plot, multi_dose_plot, multi_dose_with_delay_plot
+from PharmacokineticModeling.pk_model_and_par import my_model, model_parameters
 
-num_days = 1
+num_days = 2
 num_dose = 3
 
 interval = 3
@@ -11,10 +12,10 @@ num_comp = 3
 
 drug_doses = [100, 500, 1000]
 
-comp = range(num_comp)
+comp = [1] #range(num_comp)
 
-single_dose_plot(drug_doses, num_comp, num_days, 'day', comp)
+single_dose_plot(my_model, model_parameters, num_comp, drug_doses,  num_days, 'days', comp)
 
-multi_dose_plot(drug_doses, num_comp, num_days, 'day', num_dose, interval, comp)
-
-multi_dose_with_delay_plot(drug_doses, num_comp, num_days, 'day', num_dose, interval, delay, comp)
+multi_dose_plot(my_model, model_parameters, num_comp, drug_doses, num_days, 'days', num_dose, interval, comp)
+#
+multi_dose_with_delay_plot(my_model, model_parameters, num_comp, drug_doses, num_days, 'days', num_dose, interval, delay, comp)

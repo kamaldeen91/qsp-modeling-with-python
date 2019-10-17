@@ -1,14 +1,67 @@
 import numpy as np
-
 from scipy.integrate import odeint
+import pandas as pd
+import matplotlib.pyplot as plt
 
 from simulation_time import time_for_single_dose, time_for_multi_dose, time_for_multi_dose_delay
-
 from TwoCompartment.PK_model.two_comp_model_parameters import pk_two_comp_model_parameters
-
 from TwoCompartment.PK_model.two_comp_model import two_comp_model
 
-################################################################################################################################
+from PharmacokineticModeling.pk_model_simulations import single_dose_simulation, multi_dose_simulation, multi_dose_sim_delay
+
+from plot_simulations_with_AUC import plot_multi_dose_output, plot_multi_dose_delay_output, plot_single_dose_output
+
+from model_simulation_plots import single_dose_plot, multi_dose_plot, multi_dose_with_delay_plot
+
+########################################################################################################################
+
+
+class SingleDose():
+
+    def __init__(self, model, model_par, simulation_time, time_unit, dose_mg, comp_num):
+        self.model = model
+        self.model_par = model_par
+        self.simulation_time = simulation_time
+        self.time_unit = time_unit
+        self.dose_mg = dose_mg
+        self.comp_num = comp_num
+
+    def simulation(self, t_step: any = 0.1):
+        sim_time = time_for_single_dose(self.simulation_time, self.time_unit)
+
+        y0 = [self.dose_mg[0], 0]
+        par = self.model_par()
+
+        y = odeint(self.model, y0, sim_time, par)
+        C = y[:, self.comp_num[0]]
+        time = np.arange(0, len(C)) / (1 / t_step)
+
+        return time, C
+
+    def plot_simulation(self, time, conc, figsize: tuple = (12, 6), ylabel: any = 'Concentration', yunit: any = 'ng/mL',
+                        show_max: bool=False, show_auc: bool = False, auc_start: any = 0, auc_end: any = 'inf' ):
+
+        plot_single_dose_output(time, conc, figsize, ylabel, yunit, show_max, show_auc, auc_start, auc_end)
+
+    def initial_cond(self):
+        y0 = [self.dose_mg[0], 0]
+        return len(y0)
+
+    def single_dose_plot(self, drug_doses, compartment, yunit: str = 'ng/l', figsize: tuple = (8, 5)):
+
+        num_comp = self.initial_cond()
+
+        single_dose_plot(self.model, self.model_par, drug_doses, num_comp, self.simulation_time, self.time_unit,
+                         compartment, yunit, figsize)
+
+    def model_properties(self, time, conc, t_step: any = 0.1):
+
+        res = pd.DataFrame([time, conc], index=['Time', 'Conc']).T
+        c_max = max(res['Conc']);  t_max = round(res[res['Conc'] == c_max]['Time'], 3)
+        tmax = t_max.index[0] * t_step
+
+        return print(c_max, tmax)
+########################################################################################################################
 
 
 def two_comp_single_dose_simulation(simulation_time: any, unit: str, dose_mg, c: int = 1):

@@ -5,11 +5,12 @@ from sklearn.metrics import auc
 
 import matplotlib.pyplot as plt
 import matplotlib.ticker as ticker
+from itertools import chain
 
 
 def plot_multi_dose_delay_output(time, C, num_dose, interval, delay, figsize: tuple=(12,6),
-                ylabel: str = 'concentration', yunit: str = 'ng/ml', tS: int = 0,
-                tC: any = 'inf', show_auc: bool = False, show_max: bool = False, **kwargs):
+                ylabel: str = 'concentration', yunit: str = 'ng/ml', show_max: bool = False,
+                                 show_auc: bool = False, auc_start: int = 0, auc_end: any = 'inf'):
 
     res = pd.DataFrame([time, C], index=['Time', 'Conc']).T
 
@@ -53,32 +54,32 @@ def plot_multi_dose_delay_output(time, C, num_dose, interval, delay, figsize: tu
 
     if show_auc == True:
 
-        if tC == 'inf':
-            plt.fill_between(time[int(tS / plt_stp):], C[int(tS / plt_stp):], step="pre", color='k', alpha=0.1)
+        if auc_end == 'inf':
+            plt.fill_between(time[int(auc_start / plt_stp):], C[int(auc_start / plt_stp):], step="pre", color='k', alpha=0.1)
 
-            ax.text(0.2, 0.15, r'{} = {} {}'.format('AUC$_{t_0-\infty}$', round(
-                auc(time[int(tS / plt_stp):], C[int(tS / plt_stp):]), 2), yunit),
+            ax.text(0.2, 0.15, r'{} = {} {}'.format('auc$_{t_0-\infty}$', round(
+                auc(time[int(auc_start / plt_stp):], C[int(auc_start / plt_stp):]), 2), yunit),
                     horizontalalignment='center',
                     verticalalignment='center', transform=ax.transAxes,
                     fontsize=12, color='r', alpha=0.5)
 
         else:
 
-            plt.fill_between(time[int(tS / plt_stp):int(float(tC) / plt_stp) + 1], C[int(tS / plt_stp):int(float(tC) / plt_stp) + 1],
+            plt.fill_between(time[int(auc_start / plt_stp):int(float(auc_end) / plt_stp) + 1], C[int(auc_start / plt_stp):int(float(auc_end) / plt_stp) + 1],
                              step="pre", color='k', alpha=0.1)
 
-            if tS != 0:
+            if auc_start != 0:
 
-                ax.text(0.2, 0.15, r'{} = {} {}'.format('AUC$_{t_0-t}$', round(
-                    auc(time[int(tS / plt_stp):int(float(tC) / plt_stp) + 1], C[int(tS / plt_stp):int(float(tC) / plt_stp) + 1]), 2), yunit),
+                ax.text(0.2, 0.15, r'{} = {} {}'.format('auc$_{t_0-t}$', round(
+                    auc(time[int(auc_start / plt_stp):int(float(auc_end) / plt_stp) + 1], C[int(auc_start / plt_stp):int(float(auc_end) / plt_stp) + 1]), 2), yunit),
                         horizontalalignment='center',
                         verticalalignment='center', transform=ax.transAxes,
                         fontsize=12, color='r', alpha=0.5)
 
 
             else:
-                ax.text(0.2, 0.15, r'{} = {} {}'.format('AUC$_{0-t}$', round(
-                    auc(time[int(tS / plt_stp):int(float(tC) / plt_stp) + 1], C[int(tS / plt_stp):int(float(tC) / plt_stp) + 1]), 2), yunit),
+                ax.text(0.2, 0.15, r'{} = {} {}'.format('auc$_{0-t}$', round(
+                    auc(time[int(auc_start / plt_stp):int(float(auc_end) / plt_stp) + 1], C[int(auc_start / plt_stp):int(float(auc_end) / plt_stp) + 1]), 2), yunit),
                         horizontalalignment='center',
                         verticalalignment='center', transform=ax.transAxes,
                         fontsize=12, color='r', alpha=0.5)
@@ -95,8 +96,8 @@ def plot_multi_dose_delay_output(time, C, num_dose, interval, delay, figsize: tu
 
 
 def plot_multi_dose_output(time, C, num_dose, interval, figsize: tuple=(12,6),
-                ylabel: str = 'concentration', yunit: str = 'ng/ml', tS: int = 0,
-                tC: any = 'inf', show_auc: bool = False, show_max: bool = False):
+                ylabel: str = 'concentration', yunit: str = 'ng/ml', show_max: bool = False, show_auc: bool = False,
+                           auc_start: int = 0, auc_end: any = 'inf'):
 
     res = pd.DataFrame([time, C], index=['Time', 'Conc']).T
 
@@ -140,31 +141,31 @@ def plot_multi_dose_output(time, C, num_dose, interval, figsize: tuple=(12,6),
 
     if show_auc == True:
 
-        if tC == 'inf':
-            plt.fill_between(time[int(tS / plt_stp):], C[int(tS / plt_stp):], step="pre", color='k', alpha=0.1)
+        if auc_end == 'inf':
+            plt.fill_between(time[int(auc_start / plt_stp):], C[int(auc_start / plt_stp):], step="pre", color='k', alpha=0.1)
 
-            ax.text(0.2, 0.15, r'{} = {} {}'.format('AUC$_{t_0-\infty}$', round(
-                auc(time[int(tS / plt_stp):], C[int(tS / plt_stp):]), 2), yunit),
+            ax.text(0.2, 0.15, r'{} = {} {}'.format('auc$_{t_0-\infty}$', round(
+                auc(time[int(auc_start / plt_stp):], C[int(auc_start / plt_stp):]), 2), yunit),
                     horizontalalignment='center',
                     verticalalignment='center', transform=ax.transAxes,
                     fontsize=12, color='r', alpha=0.5)
 
         else:
 
-            plt.fill_between(time[int(tS / plt_stp):int(float(tC) / plt_stp) + 1], C[int(tS / plt_stp):int(float(tC) / plt_stp) + 1],
+            plt.fill_between(time[int(auc_start / plt_stp):int(float(auc_end) / plt_stp) + 1], C[int(auc_start / plt_stp):int(float(auc_end) / plt_stp) + 1],
                              step="pre", color='k', alpha=0.1)
 
-            if tS != 0:
+            if auc_start != 0:
 
-                ax.text(0.2, 0.15, r'{} = {} {}'.format('AUC$_{t_0-t}$', round(
-                    auc(time[int(tS / plt_stp):int(float(tC) / plt_stp) + 1], C[int(tS / plt_stp):int(float(tC) / plt_stp) + 1]), 2), yunit),
+                ax.text(0.2, 0.15, r'{} = {} {}'.format('auc$_{t_0-t}$', round(
+                    auc(time[int(auc_start / plt_stp):int(float(auc_end) / plt_stp) + 1], C[int(auc_start / plt_stp):int(float(auc_end) / plt_stp) + 1]), 2), yunit),
                         horizontalalignment='center',
                         verticalalignment='center', transform=ax.transAxes,
                         fontsize=12, color='r', alpha=0.5)
 
             else:
-                ax.text(0.2, 0.15, r'{} = {} {}'.format('AUC$_{0-t}$', round(
-                    auc(time[int(tS / plt_stp):int(float(tC) / plt_stp) + 1], C[int(tS / plt_stp):int(float(tC) / plt_stp) + 1]), 2), yunit),
+                ax.text(0.2, 0.15, r'{} = {} {}'.format('auc$_{0-t}$', round(
+                    auc(time[int(auc_start / plt_stp):int(float(auc_end) / plt_stp) + 1], C[int(auc_start / plt_stp):int(float(auc_end) / plt_stp) + 1]), 2), yunit),
                         horizontalalignment='center',
                         verticalalignment='center', transform=ax.transAxes,
                         fontsize=12, color='r', alpha=0.5)
@@ -180,7 +181,7 @@ def plot_multi_dose_output(time, C, num_dose, interval, figsize: tuple=(12,6),
 
 
 def plot_single_dose_output(time, C, figsize: tuple=(12,6), ylabel: str = 'concentration', yunit: str = 'ng/ml',
-                            show_auc: bool = False, tS: int = 0, tC: any = 'inf', show_max: bool = False):
+                            show_max: bool = False, show_auc: bool = False, auc_start: int = 0, auc_end: any = 'inf'):
 
     res = pd.DataFrame([time, C], index=['Time', 'Conc']).T
 
@@ -220,31 +221,31 @@ def plot_single_dose_output(time, C, figsize: tuple=(12,6), ylabel: str = 'conce
 
     if show_auc == True:
 
-        if tC == 'inf':
-            plt.fill_between(time[int(tS / plt_stp):], C[int(tS / plt_stp):], step="pre", color='k', alpha=0.1)
+        if auc_end == 'inf':
+            plt.fill_between(time[int(auc_start / plt_stp):], C[int(auc_start / plt_stp):], step="pre", color='k', alpha=0.1)
 
-            ax.text(0.2, 0.15, r'{} = {} {}'.format('AUC$_{t_0-\infty}$', round(
-                auc(time[int(tS / plt_stp):], C[int(tS / plt_stp):]), 2), yunit),
+            ax.text(0.2, 0.15, r'{} = {} {}'.format('auc$_{t_0-\infty}$', round(
+                auc(time[int(auc_start / plt_stp):], C[int(auc_start / plt_stp):]), 2), yunit),
                     horizontalalignment='center',
                     verticalalignment='center', transform=ax.transAxes,
                     fontsize=12, color='r', alpha=0.5)
 
         else:
 
-            plt.fill_between(time[int(tS / plt_stp):int(float(tC) / plt_stp) + 1], C[int(tS / plt_stp):int(float(tC) / plt_stp) + 1],
+            plt.fill_between(time[int(auc_start / plt_stp):int(float(auc_end) / plt_stp) + 1], C[int(auc_start / plt_stp):int(float(auc_end) / plt_stp) + 1],
                              step="pre", color='k', alpha=0.1)
 
-            if tS != 0:
+            if auc_start != 0:
 
-                ax.text(0.2, 0.15, r'{} = {} {}'.format('AUC$_{t_0-t}$', round(
-                    auc(time[int(tS / plt_stp):int(float(tC) / plt_stp) + 1], C[int(tS / plt_stp):int(float(tC) / plt_stp) + 1]), 2), yunit),
+                ax.text(0.2, 0.15, r'{} = {} {}'.format('auc$_{t_0-t}$', round(
+                    auc(time[int(auc_start / plt_stp):int(float(auc_end) / plt_stp) + 1], C[int(auc_start / plt_stp):int(float(auc_end) / plt_stp) + 1]), 2), yunit),
                         horizontalalignment='center',
                         verticalalignment='center', transform=ax.transAxes,
                         fontsize=12, color='r', alpha=0.5)
 
             else:
-                ax.text(0.2, 0.15, r'{} = {} {}'.format('AUC$_{0-t}$', round(
-                    auc(time[int(tS / plt_stp):int(float(tC) / plt_stp) + 1], C[int(tS / plt_stp):int(float(tC) / plt_stp) + 1]), 2), yunit),
+                ax.text(0.2, 0.15, r'{} = {} {}'.format('auc$_{0-t}$', round(
+                    auc(time[int(auc_start / plt_stp):int(float(auc_end) / plt_stp) + 1], C[int(auc_start / plt_stp):int(float(auc_end) / plt_stp) + 1]), 2), yunit),
                         horizontalalignment='center',
                         verticalalignment='center', transform=ax.transAxes,
                         fontsize=12, color='r', alpha=0.5)
