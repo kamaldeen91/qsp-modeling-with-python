@@ -9,16 +9,13 @@ def single_dose_simulation(model, model_parameters, number_of_comp, simulation_t
                            compartment_pos, plt_stp: float = 0.1):
 
     sim_time = time_for_single_dose(simulation_time, time_unit)
-
     y0 = np.concatenate([[dose_mg[0]], np.zeros(number_of_comp - 1)])
 
     if callable(model_parameters):
         par = model_parameters()
     else:
         par = tuple(model_parameters)
-
     y = odeint(model, y0, sim_time, par)
-
     conc = y[:, compartment_pos[0]]
     time = np.arange(0, len(conc)) / (1 / plt_stp)
 
@@ -31,7 +28,6 @@ def multi_dose_simulation(model, model_parameters, number_of_comp, simulation_ti
                           interval: any, dose_mg, compartment_pos, plt_stp: float = 0.1):
 
     sim_time = time_for_multi_dose(simulation_time, time_unit, num_dose, interval)
-
     y0 = np.concatenate([[dose_mg[0]], np.zeros(number_of_comp - 1)])
     t = sim_time[0][0:]
 
@@ -46,7 +42,6 @@ def multi_dose_simulation(model, model_parameters, number_of_comp, simulation_ti
     j = 1
 
     if len(dose_mg) == 1:
-
         while j < len(sim_time):
             init_i = [yy[:, i][-1] for i in range(1, number_of_comp)]
 
@@ -57,11 +52,10 @@ def multi_dose_simulation(model, model_parameters, number_of_comp, simulation_ti
             cconc.append(yy[:, compartment_pos[0]])
 
     else:
-
         while j < len(sim_time):
             init_i = [yy[:, i][-1] for i in range(1, number_of_comp)]
 
-            y_n = odeint(model, np.concatenate([[dose_mg[j] + yy[:, 0][-1]], init_i]), sim_time[j][2:], par)
+            y_n = odeint(model, np.concatenate([[dose_mg[j] + yy[:, 0][-1]], init_i]), sim_time[j][1:], par)
             yy = y_n
             j += 1
 
@@ -110,11 +104,10 @@ def multi_dose_sim_delay(model, model_parameters, number_of_comp, simulation_tim
     yy = y; cconc = []; n_cc = []; nn_cc = []
 
     if len(dose_mg) == 1:
-
         while j < len(delay):
             init_i = [yy[:, i][-1] for i in range(1, number_of_comp)]
 
-            y_n = odeint(model, np.concatenate([[dose_mg[0] + yy[:, 0][-1]], init_i]), new_time[j][1:], par)
+            y_n = odeint(model, np.concatenate([[dose_mg[0] + yy[:, 0][-1]], init_i]), new_time[j][0:], par)
             yy = y_n
             j += 1
 
@@ -125,7 +118,7 @@ def multi_dose_sim_delay(model, model_parameters, number_of_comp, simulation_tim
         while j < len(delay):
             init_i = [yy[:, i][-1] for i in range(1, number_of_comp)]
 
-            y_n = odeint(model, np.concatenate([[dose_mg[j] + yy[:, 0][-1]], init_i]), new_time[j][1:], par)
+            y_n = odeint(model, np.concatenate([[dose_mg[j+1] + yy[:, 0][-1]], init_i]), new_time[j][0:], par)
             yy = y_n
             j += 1
 

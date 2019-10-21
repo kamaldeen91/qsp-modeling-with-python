@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 from simtools.Utilities.General import files_in_dir
 
 setup(name='pqsp',
-      version='$VERSION$',
+      version='pqsp_0.1.0',
       packages=find_packages(),
       author='K. Okuneye',
       author_email='kokuneye@northwestern.edu',

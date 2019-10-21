@@ -7,11 +7,15 @@ from simulation_time import time_for_multi_dose
 from plot_simulations_with_AUC import plot_multi_dose_output
 from model_simulation_plots import multi_dose_plot
 
+from PharmacokineticModeling.pk_model_simulations import multi_dose_simulation
+from PharmacokineticModeling.pk_model_sim_with_vary_F import multi_dose_simulation_vary_bioav
+
 ########################################################################################################################
 
 
 class MultipleDose():
     def __init__(self, model, model_parameters, number_of_compartments, number_of_dose, interval):
+
         self.model = model
         self.model_parameters = model_parameters
         self.number_of_compartments = number_of_compartments
@@ -20,74 +24,14 @@ class MultipleDose():
 
     ######################
 
-    def time_for_multi_dose(self, num, unit: str, num_dose, interval, plt_stp: float = 0.1):
+    def simulation(self, simulation_time: any, time_unit: str, dose_mg, compartment_pos=None):
 
-        if unit == 'day' or unit == 'days' or unit == 'Day' or unit == 'Days':
-            end = 24 * num
-        else:
-            end = num
-
-        k = np.arange(0, end + plt_stp, plt_stp)
-        interval_end = interval * (num_dose - 1)
-
-        i = 0
-        time = []
-
-        while i < num_dose - 1:
-            for position, item in enumerate(k):
-                if item == interval:
-                    time.append(k[i * 1 * position: ((i + 1) * position) + 1])
-            i += 1
-
-        for position, item in enumerate(k):
-            if time[-1][-1] != end and item == interval_end:
-                time.append(k[position:])
-
-        return time
-
-    ################
-
-    def multi_dose_simulation(self, simulation_time, time_unit, dose_mg, compartment_pos=None, t_step: float = 0.1):
         if compartment_pos is None:
             compartment_pos = [1]
 
-        sim_time = self.time_for_multi_dose(simulation_time, time_unit, self.number_of_dose, self.interval)
-        y0 = np.concatenate([[dose_mg[0]], np.zeros(self.number_of_compartments - 1)])
-        t = sim_time[0][0:]
-
-        if type(self.model_parameters()) != tuple:
-            par = tuple([self.model_parameters()])
-        else:
-            par = self.model_parameters()
-
-        y = odeint(self.model, y0, t, par)
-        yy = y; cconc = []; n_cc = []; nn_cc = []
-        j = 1
-        if len(dose_mg) == 1:
-
-            while j < len(sim_time):
-                init_i = [yy[:, i][-1] for i in range(1, self.number_of_compartments)]
-                y_n = odeint(self.model, np.concatenate([[dose_mg[0] + yy[:, 0][-1]], init_i]), sim_time[j][1:], par)
-                yy = y_n
-                j += 1
-                cconc.append(yy[:, compartment_pos[0]])
-        else:
-
-            while j < len(sim_time):
-                init_i = [yy[:, i][-1] for i in range(1, self.number_of_compartments)]
-                y_n = odeint(self.model, np.concatenate([[dose_mg[j] + yy[:, 0][-1]], init_i]), sim_time[j][2:], par)
-                yy = y_n
-                j += 1
-                cconc.append(yy[:, compartment_pos[0]])
-
-        for i in range(len(cconc)):
-            n_cc.append(list(cconc[i]))
-            nn_cc += n_cc[i]
-
-        C = np.concatenate([y[:, compartment_pos[0]], nn_cc])
-        time = np.arange(0, len(C)) / (1 / t_step)
-
-        return time, C
+        time, conc = multi_dose_simulation(self.model, self.model_parameters, self.number_of_compartments, simulation_time,
+                              time_unit, self.number_of_dose, self.interval, dose_mg, compartment_pos)
+        return time, conc
 
     ######################
 
