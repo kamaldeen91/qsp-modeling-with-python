@@ -47,8 +47,9 @@ time, conc = model_sd.simulation(simulation_time=2, time_unit='days', dose_mg=[1
 # This simulation also be written as - model_sd.simulation(simulation_time=24, time_unit='hrs', dose_mg=[100], compartment_pos=[1])
 # i.e., for 24 hrs
     
-mymodel.plot_simulation(time, conc, show_max=True, show_auc=True)
-# This line plots the simulation output from previous command line and will show (if = True) the Cmax (and tmax) and the AUC
+mymodel.plot_simulation(time, conc, show_max=True, show_auc=True, auc_start=2, auc_end=30)
+# This line plots the simulation output from previous command line and will show (if show_max = True) the Cmax (and corresponding tmax)
+# This function will also show the AUC from auc_start to auc_end (auc_start = 0 and auc_start = 'inf' if not indicated)
 # Note that one could easily plot the time vs conc using different plot function
 
 mymodel.single_dose_plot(simulation_time=20, time_unit='hrs', drug_doses=[100, 400, 800], compartment_pos=[0, 1, 2], figsize=(16,8))
@@ -121,4 +122,16 @@ time_3, conc_3 = mymulti_biov.simulation(simulation_time=8, time_unit='days', do
 mymulti_biov.plot_simulation(time_3, conc_3, show_auc=True, show_max=True)
 
 mymulti_biov.multi_dose_vary_bioav_plot(simulation_time=8, time_unit='days', drug_doses=[10,20,30], compartment_pos=[0,1,2], figsize=(12,8))
+```
+
+### For multiple dose with delay and varying bioavailability
+
+```Python
+mymultimodel_delay = MultipleDoseVaryBioavDelay(two_c_model, par, number_of_compartments=3, number_of_dose=4, interval=24, delay=[6,3,0], bioav=[1, 0.7, 0.9, 0.4])
+
+tnn, cnn = mymultimodel_delay.simulation(simulation_time=8, time_unit='days', dose_mg=[100])
+
+mymultimodel_delay.plot_simulation(tnn, cnn, show_auc=True, show_max=True)
+
+mymultimodel_delay.md_delay_vary_bioav_plot(simulation_time=8, time_unit='days', drug_doses=[100, 200, 400], compartment_pos=[0,1,2], figsize=(12,8))
 ```
