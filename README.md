@@ -12,7 +12,11 @@ pqsp can be used to simulate a compartment model for QSP for single dose; multip
 
 ## Example
 Consider the following system of ODE for QSP with oral administration
-$k = v$
+```
+git status
+git add
+git commit
+```
 
 ##### For single dose simulation
 
