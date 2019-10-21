@@ -3,7 +3,9 @@
 pqsp ia aPython object oriented programming software used for simulating and analyzing models of quantitative systems biology and pharmacology. It facilitates the simulation and visualization of ODE models for QSP. The toolbox is developed in the Jaline lab at Northwestern University.
 
 ## Installation
-To install the pqsp package, clone this repository and run > **pip install -e /path/to/script/folder** in the command line - allowing users to run code in different folder and using preferred IDE. :+1:
+To install the pqsp package, clone this repository and run 
+> **pip install -e /path/to/script/folder** 
+in the command line - allowing users to run code in different folder and using preferred IDE. :+1:
 
 ## Getting started
 pqsp can be used to simulate a compartment model for QSP for single dose; multiple dose; and multiple dose with delay and with varying bioavailability. In the preferred IDE, use the following command lines to import required functions and pacakages:
