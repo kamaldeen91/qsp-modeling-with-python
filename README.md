@@ -2,20 +2,16 @@
 
 pQSP is a quantitative systems biology and pharmacology modeling toolbox for Python. It provides and facilitate simulation and analyzing ODE models of drug pharmacological systems. The toolbox is developed in the Jaline lab at Northwestern University.
 
-I have attached a pdf file indicating the same thing: pqsp-CodeManual; and made a short introductory video of the code -
-
 ## Installation
 To install the standard IDM malaria package, either clone this repository and run pip install -e /path/to/script/folder in the command line
 
 
 
 ## Getting started
-
-
+pqsp can be used to simulate (for any given compartment model for QSP) a for single dose; multiple dose; and multiple dose with delay and for the model with varying bioavailability.
 
 ## Example
-
-In pk_model_simulation.py, the model can be simulated for single dose (single_dose_simulation); multiple dose (multi_dose_simulation); and multiple dose with delay (multi_dose_sim_delay) - nice!
+Consider the following system of ODE for QSP with oral administration
 
 ##### For single dose simulation
 
