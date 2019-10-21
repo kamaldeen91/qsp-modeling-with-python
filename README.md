@@ -3,7 +3,7 @@
 pQSP is a quantitative systems biology and pharmacology modeling toolbox for Python. It provides and facilitate simulation and analyzing ODE models of drug pharmacological systems. The toolbox is developed in the Jaline lab at Northwestern University.
 
 ## Installation
-To install the pqsp package, either clone this repository and run **pip install -e /path/to/script/folder in the command line** :+1:
+To install the pqsp package, either clone this repository and run **pip install -e /path/to/script/folder in the command line** Allowing users to run code in different folder and using preferred IDE. :+1:
 
 
 
@@ -11,11 +11,12 @@ To install the pqsp package, either clone this repository and run **pip install 
 pqsp can be used to simulate a compartment model for QSP for single dose; multiple dose; and multiple dose with delay and with varying bioavailability.
 
 ## Example
-Consider the following system of ODE for QSP with oral administration
-```
-git status
-git add
-git commit
+Consider the following system of ODE for QSP with oral administration (this example is executed using both PyCharm, and Jupyter notebook)
+``` Python
+import pqsp
+import numpy as np
+import matplotlib.pyplot as plt
+%matplotlib inline
 ```
 
 ##### For single dose simulation
