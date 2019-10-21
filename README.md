@@ -8,10 +8,7 @@ To install the pqsp package, either clone this repository and run **pip install 
 
 
 ## Getting started
-pqsp can be used to simulate a compartment model for QSP for single dose; multiple dose; and multiple dose with delay and with varying bioavailability.
-
-## Example
-Consider the following system of ODE for QSP with oral administration (this example is executed using both PyCharm, and Jupyter notebook)
+pqsp can be used to simulate a compartment model for QSP for single dose; multiple dose; and multiple dose with delay and with varying bioavailability. In the preferred IDE, use the following command lines to import required functions and pacakages:
 ``` Python
 import pqsp
 
@@ -22,6 +19,10 @@ from pqsp.pqsp_multi_dose_delay_simulations import MultipleDoseDelay  # for simu
 from pqsp.pqsp_multi_bioav import MultipleDoseVaryBioav  # for simulation and plots of model with varying bioavailability
 from pqsp.pqsp_multi_bioav_delay import MultipleDoseVaryBioavDelay  # for simulation and plots of model with delay and varying bioavailability
 ```
+
+## Example
+Consider the following system of ODE for QSP with oral administration (this example is executed using both PyCharm, and Jupyter notebook)
+
 
 ##### For single dose simulation
 
