@@ -3,7 +3,7 @@
 pQSP is a quantitative systems biology and pharmacology modeling toolbox for Python. It provides and facilitate simulation and analyzing ODE models of drug pharmacological systems. The toolbox is developed in the Jaline lab at Northwestern University.
 
 ## Installation
-To install the standard IDM malaria package, either clone this repository and run **pip install -e /path/to/script/folder in the command line** :+1:
+To install the pqsp package, either clone this repository and run **pip install -e /path/to/script/folder in the command line** :+1:
 
 
 
