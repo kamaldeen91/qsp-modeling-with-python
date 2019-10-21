@@ -78,7 +78,7 @@ mymultimodel.plot_simulation(time_1, conc_1, show_max=True, show_auc=True)
 mymultimodel.multi_dose_plot(simulation_time=100, time_unit='hrs', drug_doses=[100, 400, 800],compartment_pos=range(3),figsize=(14,9))
 ```
 
-### For multiple dose with delay simulation :pill:   :pill::pill:
+### For multiple dose with delay simulation :pill: &nbsp  :pill::pill:
 In addition to checking the effect of incomplete dose, pqsp can be used to check the effect of delay in drug dose
 num_dose = number of time to take, interval = time interval between drug intake 
 
