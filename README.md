@@ -58,7 +58,7 @@ mymodel.model_properties(time, conc)
 # This line output the Cmax and corresponding Tmax of the model
 ```
 
-### For Multiple dose simulation
+### For multiple dose simulation
 
 ```Python
 mymultimodel = MultipleDose(my_model, parameters, number_of_compartments=3, number_of_dose=3, interval=24)
@@ -73,14 +73,14 @@ mymultimodel.plot_simulation(time_1, conc_1, show_max=True, show_auc=True)
 mymultimodel.multi_dose_plot(simulation_time=100, time_unit='hrs', drug_doses=[100, 400, 800],compartment_pos=range(3),figsize=(14,9))
 ```
 
-### For Multiple dose with delay simulation
+### For multiple dose with delay simulation
 In addition to checking the effect of incomplete dose, pqsp can be used to check the effect of delay in drug dose
 num_dose = number of time to take, interval = time interval between drug intake 
 
 ```Python
 mydelaymodel = MultipleDoseDelay(my_model, parameters, number_of_compartments=3, number_of_dose=4, interval=24, 
                               delay=[5, 2, 0])
-
+# Note that the number of entries in delay is one less than number of dose. This is because delay is expected to start only after the first dose is taken
 time_2, conc_2 = mydelaymodel.simulation(simulation_time=5, time_unit='days', dose_mg=[150], compartment_pos=[1])
 # Try the command line below to combine delay with incomplete dose                               
 # time, conc = mydelaymodel.simulation(simulation_time=10, time_unit='days', dose_mg=[100, 150, 0, 100], compartment_pos=[1])
@@ -89,8 +89,36 @@ mydelaymodel.plot_simulation(time_3, conc_3, show_max=True, show_auc=True)
 
 mydelaymodel.multi_dose_delay_plot(simulation_time=5,time_unit='days',drug_doses=[100, 400, 800],compartment_pos=range(3),figsize=(16,12))
 ```
-##### For multiple dose with delay simulation
 
-###### multi_dose_sim_delay(num_comp, n_days: int, num_dose: int, interval, dose_mg, delay, c):
+### For multiple dose with varying bioavailability
+Consider the model and parameters below:
+```Python
+def two_c_model(y, t, ka, K, K12, K21, F):
+    G = y[0]; A1 = y[1]; A2 = y[2]
 
-delay = array of delay during drug intake.
+    dGdt = -ka * G
+    dA1dt = F * ka * G + K21 * A2 - K12 * A1 - K * A1
+    dA2dt = K12 * A1 - K21 * A2
+
+    return [dGdt, dA1dt, dA2dt]
+
+ka = 0.17; Cl = 15.5; Vc = 368; Vd = 1060; Q = 16
+K12 = Q / Vc; K21 = Q / Vd; K = Cl / Vc
+
+par = [ka, K, K12, K21]
+```
+Observe that when defining two_c_model in this case, we ensured that F is listed as the last entry in the function.
+Always ensure this.
+If I had run the simulation for my_model defined above the output would be wrong and can be fixed after rearraging my parameters for my_model defined above.
+
+That is, two_c_model(y, t, ka, K, K12, K21, **F**). The simulation of the model is given as follows
+
+```Python
+mymulti_biov = MultipleDoseVaryBioav(two_c_model, par, number_of_compartments=3, number_of_dose=4, interval=24, bioav=[1, 0.51, 0.41, 0.6])
+
+time_3, conc_3 = mymulti_biov.simulation(simulation_time=8, time_unit='days', dose_mg=[100], compartment_pos=[1])
+
+mymulti_biov.plot_simulation(time_3, conc_3, show_auc=True, show_max=True)
+
+mymulti_biov.multi_dose_vary_bioav_plot(simulation_time=8, time_unit='days', drug_doses=[10,20,30], compartment_pos=[0,1,2], figsize=(12,8))
+```
