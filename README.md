@@ -9,7 +9,7 @@ To install the pqsp package, clone this repository and run
 in the command line - allowing users to run code in different folder and using preferred IDE. :+1:
 
 ## Getting started
-pqsp can be used to simulate a compartment model for QSP for **_single dose; multiple dose; and multiple dose with delay and with varying bioavailability**. In the preferred IDE, use the following command lines to import required functions and pacakages:
+pqsp can be used to simulate a compartment model for QSP for ***single dose; multiple dose; and multiple dose with delay and with varying bioavailability***. In the preferred IDE, use the following command lines to import required functions and pacakages:
 ``` Python
 import pqsp
 
