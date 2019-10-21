@@ -50,7 +50,8 @@ time, conc = model_sd.simulation(simulation_time=2, time_unit='days', dose_mg=[1
 # i.e., for 24 hrs
     
 mymodel.plot_simulation(time, conc, show_max=True, show_auc=True)
-# This line plots the simulation output from previous command line
+# This line plots the simulation output from previous command line and will show (if = True) the Cmax (and tmax) and the AUC
+# Note that one could easily plot the time vs conc using different plot function
 
 mymodel.single_dose_plot(simulation_time=20, time_unit='hrs', drug_doses=[100, 400, 800], compartment_pos=[0, 1, 2], figsize=(16,8))
 # This line code allow for plotting the model for different initial doses and for different compartments of the model
