@@ -127,11 +127,11 @@ mymulti_biov.multi_dose_vary_bioav_plot(simulation_time=8, time_unit='days', dru
 ### For multiple dose with delay and varying bioavailability
 
 ```Python
-mymultimodel_delay = MultipleDoseVaryBioavDelay(two_c_model, par, number_of_compartments=3, number_of_dose=4, interval=24, delay=[6,3,0], bioav=[1, 0.7, 0.9, 0.4])
+mymulti_biov_delay = MultipleDoseVaryBioavDelay(two_c_model, par, number_of_compartments=3, number_of_dose=4, interval=24, delay=[6,3,0], bioav=[1, 0.7, 0.9, 0.4])
 
-tnn, cnn = mymultimodel_delay.simulation(simulation_time=8, time_unit='days', dose_mg=[100])
+time_4, conc_4 = mymultimodel_delay.simulation(simulation_time=8, time_unit='days', dose_mg=[100])
 
-mymultimodel_delay.plot_simulation(tnn, cnn, show_auc=True, show_max=True)
+mymulti_biov_delay.plot_simulation(time_4, conc_4, show_auc=True, show_max=True)
 
-mymultimodel_delay.md_delay_vary_bioav_plot(simulation_time=8, time_unit='days', drug_doses=[100, 200, 400], compartment_pos=[0,1,2], figsize=(12,8))
+mymulti_biov_delay.md_delay_vary_bioav_plot(simulation_time=8, time_unit='days', drug_doses=[100, 200, 400], compartment_pos=[0,1,2], figsize=(12,8))
 ```
