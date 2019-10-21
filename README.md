@@ -1,11 +1,9 @@
 # qsp-modeling-with-python (pqsp) by Kamaldeen
 
-pQSP is a quantitative systems biology and pharmacology modeling toolbox for Python. It provides and facilitate simulation and analyzing ODE models of drug pharmacological systems. The toolbox is developed in the Jaline lab at Northwestern University.
+pqsp ia aPython object oriented programming software used for simulating and analyzing models of quantitative systems biology and pharmacology. It facilitates the simulation and visualization of ODE models for QSP. The toolbox is developed in the Jaline lab at Northwestern University.
 
 ## Installation
 To install the pqsp package, either clone this repository and run **pip install -e /path/to/script/folder in the command line** Allowing users to run code in different folder and using preferred IDE. :+1:
-
-
 
 ## Getting started
 pqsp can be used to simulate a compartment model for QSP for single dose; multiple dose; and multiple dose with delay and with varying bioavailability. In the preferred IDE, use the following command lines to import required functions and pacakages:
@@ -66,22 +64,31 @@ mymodel.model_properties(time, conc)
 mymultimodel = MultipleDose(my_model, parameters, number_of_compartments=3, number_of_dose=3, interval=24)
 
 time_1, conc_1 = mymultimodel.simulation(simulation_time=5, time_unit='days', dose_mg=[100], compartment_pos=[2])
-# dose_mg = [100, 100, 100} i.e., number 
+# dose_mg = [100, 100, 100}
 # This allow for possible change in dose during therapy, for instance dose_mg = [100, 75, 100]
-# It also for checking impact of incomplete dose, for instance dose_mg = [100, 0, 100] :+1:
-# time_2, conc_2 = mymultimodel.simulation(simulation_time=10, time_unit='days', dose_mg=[100, 100, 100], compartment_pos=[2])
+# It also for checking impact of incomplete dose, for instance dose_mg = [100, 0, 100]
 
 mymultimodel.plot_simulation(time_1, conc_1, show_max=True, show_auc=True)
 
-mymultimodel.multi_dose_plot(simulation_time=100, time_unit='hrs', drug_doses=[100, 400, 800],
-                             compartment_pos=range(3), figsize=(14,9))
+mymultimodel.multi_dose_plot(simulation_time=100, time_unit='hrs', drug_doses=[100, 400, 800],compartment_pos=range(3),figsize=(14,9))
 ```
 
-###### multi_dose_simulation(num_comp, n_days: int, num_dose: int, interval, dose_mg, c)
-
+### For Multiple dose with delay simulation
+In addition to checking the effect of incomplete dose, pqsp can be used to check the effect of delay in drug dose
 num_dose = number of time to take, interval = time interval between drug intake 
 
+```Python
+mydelaymodel = MultipleDoseDelay(my_model, parameters, number_of_compartments=3, number_of_dose=4, interval=24, 
+                              delay=[5, 2, 0])
 
+time_2, conc_2 = mydelaymodel.simulation(simulation_time=5, time_unit='days', dose_mg=[150], compartment_pos=[1])
+# Try the command line below to combine delay with incomplete dose                               
+# time, conc = mydelaymodel.simulation(simulation_time=10, time_unit='days', dose_mg=[100, 150, 0, 100], compartment_pos=[1])
+
+mydelaymodel.plot_simulation(time_3, conc_3, show_max=True, show_auc=True)
+
+mydelaymodel.multi_dose_delay_plot(simulation_time=5,time_unit='days',drug_doses=[100, 400, 800],compartment_pos=range(3),figsize=(16,12))
+```
 ##### For multiple dose with delay simulation
 
 ###### multi_dose_sim_delay(num_comp, n_days: int, num_dose: int, interval, dose_mg, delay, c):
