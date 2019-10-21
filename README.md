@@ -5,7 +5,7 @@ pQSP is a quantitative systems biology and pharmacology modeling toolbox for Pyt
 I have attached a pdf file indicating the same thing: pqsp-CodeManual; and made a short introductory video of the code -
 
 ## Installation
-pip install -e /path/to/script/folder
+To install the standard IDM malaria package, either clone this repository and run pip install -e /path/to/script/folder in the command line
 
 
 
