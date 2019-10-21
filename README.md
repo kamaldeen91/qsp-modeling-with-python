@@ -41,7 +41,7 @@ parameters = (ka, F, K, K12, K21)  # or parameters = [ka, F, K, K12, K21]
 
 ```Python
 model_sd = SingleDose(my_model, parameters, number_of_compartments=3)  
-# although model above is a two-compartmental pk model, the number of compartment defined in the simulation is the number of ODE equations defined in the model
+# Although model above is a two-compartmental pk model, the number of compartment defined in the simulation is the number of ODE equations defined in the model
 
 time, conc = model_sd.simulation(simulation_time=2, time_unit='days', dose_mg=[100], compartment_pos=[1])
 # This line simulate the model at initial drug concentration of 100 mg for 2 days 
@@ -60,11 +60,22 @@ mymodel.model_properties(time, conc)
 # This line output the Cmax and corresponding Tmax of the model
 ```
 
-###### single_dose_simulation(num_comp, num_days: int, dose_mg, c)
+### For Multiple dose simulation
 
-num_comp = number of compartment; num_days = number of days to run the simulation; dose_mg = concentration of drug; c = compartment you would like to output (for instance, c = 1 will provide results for the second comparment). Python counts from 0...
+```Python
+mymultimodel = MultipleDose(my_model, parameters, number_of_compartments=3, number_of_dose=3, interval=24)
 
-##### For multiple dose simulation
+time_1, conc_1 = mymultimodel.simulation(simulation_time=5, time_unit='days', dose_mg=[100], compartment_pos=[2])
+# dose_mg = [100, 100, 100} i.e., number 
+# This allow for possible change in dose during therapy, for instance dose_mg = [100, 75, 100]
+# It also for checking impact of incomplete dose, for instance dose_mg = [100, 0, 100] :+1:
+# time_2, conc_2 = mymultimodel.simulation(simulation_time=10, time_unit='days', dose_mg=[100, 100, 100], compartment_pos=[2])
+
+mymultimodel.plot_simulation(time_1, conc_1, show_max=True, show_auc=True)
+
+mymultimodel.multi_dose_plot(simulation_time=100, time_unit='hrs', drug_doses=[100, 400, 800],
+                             compartment_pos=range(3), figsize=(14,9))
+```
 
 ###### multi_dose_simulation(num_comp, n_days: int, num_dose: int, interval, dose_mg, c)
 
