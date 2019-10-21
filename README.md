@@ -1,6 +1,8 @@
 # qsp-modeling-with-python (pqsp) by Kamaldeen
 
-pqsp ia aPython object oriented programming software used for simulating and analyzing models of quantitative systems biology and pharmacology. It facilitates the simulation and visualization of ODE models for QSP. The toolbox is developed in the Jaline lab at Northwestern University.
+pqsp ia aPython object oriented programming software used for simulating, analyzing and visualizing models of quantitative systems biology and pharmacology.
+
+The toolbox is developed by Kamaldeen, a postdoctoral researcher in the Jaline lab at Northwestern University.
 
 ## Installation
 To install the pqsp package, clone this repository and run 
