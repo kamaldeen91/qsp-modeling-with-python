@@ -34,11 +34,30 @@ def my_model(y, t, ka, F, K, K12, K21):
     return [dGdt, dA1dt, dA2dt]
     
 ka = 1.8; K = 0.28; F = 0.89; K12 = 0.7; K21 = 0.3;
-parameters = (ka, F, K, K12, K21)
+parameters = (ka, F, K, K12, K21)  # or parameters = [ka, F, K, K12, K21]
 ``` 
 
+### For single dose simulation
 
-##### For single dose simulation
+```Python
+model_sd = SingleDose(my_model, parameters, number_of_compartments=3)  
+# although model above is a two-compartmental pk model, the number of compartment defined in the simulation is the number of ODE equations defined in the model
+
+time, conc = model_sd.simulation(simulation_time=2, time_unit='days', dose_mg=[100], compartment_pos=[1])
+# This line simulate the model at initial drug concentration of 100 mg for 2 days 
+# The result output is for the second compartment - compartment_pos=[1]: remember Python counts from 0
+# This simulation also be written as - model_sd.simulation(simulation_time=24, time_unit='hrs', dose_mg=[100], compartment_pos=[1])
+# i.e., for 24 hrs
+    
+mymodel.plot_simulation(time, conc, show_max=True, show_auc=True)
+# This line plots the simulation output from previous command line
+
+mymodel.single_dose_plot(simulation_time=20, time_unit='hrs', drug_doses=[100, 400, 800], compartment_pos=[0, 1, 2], figsize=(16,8))
+# This line code allow for plotting the model for different initial doses and for different compartments of the model
+
+mymodel.model_properties(time, conc)
+# This line output the Cmax and corresponding Tmax of the model
+```
 
 ###### single_dose_simulation(num_comp, num_days: int, dose_mg, c)
 
