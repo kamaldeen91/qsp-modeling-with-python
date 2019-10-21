@@ -14,9 +14,13 @@ pqsp can be used to simulate a compartment model for QSP for single dose; multip
 Consider the following system of ODE for QSP with oral administration (this example is executed using both PyCharm, and Jupyter notebook)
 ``` Python
 import pqsp
-import numpy as np
-import matplotlib.pyplot as plt
-%matplotlib inline
+
+from pqsp.pqsp_single_dose_simulations import SingleDose  # for simulation and plots of model with single dose
+from pqsp.pqsp_multi_dose_simulations import MultipleDose  # for simulation and plots of model with multiple dose
+from pqsp.pqsp_multi_dose_delay_simulations import MultipleDoseDelay  # for simulation and plots of model with multiple dose with delay
+
+from pqsp.pqsp_multi_bioav import MultipleDoseVaryBioav  # for simulation and plots of model with varying bioavailability
+from pqsp.pqsp_multi_bioav_delay import MultipleDoseVaryBioavDelay  # for simulation and plots of model with delay and varying bioavailability
 ```
 
 ##### For single dose simulation
