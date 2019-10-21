@@ -4,7 +4,8 @@ pqsp ia aPython object oriented programming software used for simulating and ana
 
 ## Installation
 To install the pqsp package, clone this repository and run 
-> **pip install -e /path/to/script/folder** 
+> **pip install -e /path/to/script/folder**
+
 in the command line - allowing users to run code in different folder and using preferred IDE. :+1:
 
 ## Getting started
