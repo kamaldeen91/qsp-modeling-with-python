@@ -2,7 +2,7 @@
 
 :pill:pqsp is a Python object oriented programming software used for simulating, analyzing and visualizing models of quantitative systems biology and pharmacology.
 
-The toolbox is developed by Kamaldeen - a postdoctoral researcher in the Jaline lab at Northwestern University.
+The toolbox is developed by Kamaldeen :soccer: - a postdoctoral researcher in the Jaline lab at Northwestern University.
 
 ## Installation
 To install the pqsp package, clone this repository and run 
