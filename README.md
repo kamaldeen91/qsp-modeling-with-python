@@ -142,8 +142,8 @@ mymulti_biov_delay.md_delay_vary_bioav_plot(simulation_time=8, time_unit='days',
 
 ##
 
-### Assignment
-Run the single, multiple and multple does with delay simulations for intravenous :syringe: ersion of my_model given by
+### Assignment :syringe:
+Run the single, multiple and multple does with delay simulations for intravenous :syringe: version of my_model given by
 
 ```python
 def intravenous_model(y, t, ka, K, K12, K21, F):
