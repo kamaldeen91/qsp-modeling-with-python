@@ -109,9 +109,9 @@ par = [ka, K, K12, K21]
 ```
 Observe that when defining **two_c_model** in this case, we ensured that F is listed as the last entry in the function.
 Always ensure this.
-> If I had run the simulation for my_model defined above the output would be wrong and can be fixed after rearraging my parameters for my_model defined above.
+> If I had run the simulation for my_model defined above the output would be wrong and can be fixed after rearraging my parameters for my_model defined above, for instance **my_model(y, t, ka, K, K12, K21, _F_)**.
 
-That is, two_c_model(y, t, ka, K, K12, K21, **F**). The simulation of the model is given as follows
+The simulation of the model is given as follows
 
 ```Python
 mymulti_biov = MultipleDoseVaryBioav(two_c_model, par, number_of_compartments=3, number_of_dose=4, interval=24, bioav=[1, 0.51, 0.41, 0.6])
