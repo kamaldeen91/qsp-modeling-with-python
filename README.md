@@ -21,7 +21,7 @@ from pqsp.pqsp_multi_bioav_delay import MultipleDoseVaryBioavDelay  # for simula
 ```
 
 ## Example
-Consider the following system of ODE for QSP with oral administration
+Consider the following system of ODE and parameters for QSP with oral administration
 ``` Python
 def my_model(y, t, ka, F, K, K12, K21):
 
@@ -31,7 +31,10 @@ def my_model(y, t, ka, F, K, K12, K21):
     dA1dt = F*ka*G + (K21*A2 - K12*A1) - K * A1
     dA2dt = K12*A1 - K21*A2
 
-    return [dGdt, dA1dt, dA2dt] 
+    return [dGdt, dA1dt, dA2dt]
+    
+ka = 1.8; K = 0.28; F = 0.89; K12 = 0.7; K21 = 0.3;
+parameters = (ka, F, K, K12, K21)
 ``` 
 
 
