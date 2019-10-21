@@ -1,6 +1,6 @@
-# QSP-modeling-with-python (:pill: pqsp) by Kamaldeen
+# QSP-modeling-with-python (:pill:pqsp) by Kamaldeen
 
-:pill: pqsp is aPython object oriented programming software used for simulating, analyzing and visualizing models of quantitative systems biology and pharmacology.
+:pill:pqsp is aPython object oriented programming software used for simulating, analyzing and visualizing models of quantitative systems biology and pharmacology.
 
 The toolbox is developed by Kamaldeen :, a postdoctoral researcher in the Jaline lab at Northwestern University.
 
