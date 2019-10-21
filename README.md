@@ -8,7 +8,7 @@ To install the standard IDM malaria package, either clone this repository and ru
 
 
 ## Getting started
-pqsp can be used to simulate (for any given compartment model for QSP) a for single dose; multiple dose; and multiple dose with delay and for the model with varying bioavailability.
+pqsp can be used to simulate a compartment model for QSP for single dose; multiple dose; and multiple dose with delay and with varying bioavailability.
 
 ## Example
 Consider the following system of ODE for QSP with oral administration
