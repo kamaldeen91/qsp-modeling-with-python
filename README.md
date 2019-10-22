@@ -35,7 +35,7 @@ def my_model(y, t, ka, F, K, K12, K21):
     return [dGdt, dA1dt, dA2dt]
     
 ka = 1.8; K = 0.28; F = 0.89; K12 = 0.7; K21 = 0.3;
-parameters = [ka, F, K, K12, K21]
+parameters = [ka, F, K, K12, K21]  # in the same order as defined in my_model
 ``` 
 
 ### For single dose simulation :pill:.
@@ -155,6 +155,5 @@ def intravenous_model(y, t, K, K12, K21):
 
 Cl = 15.5; Vc = 368; Vd = 1060; Q = 16
 K12 = Q / Vc; K21 = Q / Vd; K = Cl / Vc
-
 parameters = [K, K12, K21]
 ```
