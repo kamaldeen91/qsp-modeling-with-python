@@ -108,7 +108,6 @@ def two_c_model(y, t, ka, K, K12, K21, F):
 
 ka = 0.17; Cl = 15.5; Vc = 368; Vd = 1060; Q = 16
 K12 = Q / Vc; K21 = Q / Vd; K = Cl / Vc
-
 par = [ka, K, K12, K21]
 ```
 Observe that when defining **two_c_model** in this case, we ensured that F is listed as the last entry in the function.
