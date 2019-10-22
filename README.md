@@ -36,7 +36,7 @@ def my_model(y, t, ka, F, K, K12, K21):
     return [dGdt, dA1dt, dA2dt]
     
 ka = 1.8; K = 0.28; F = 0.89; K12 = 0.7; K21 = 0.3;
-parameters = (ka, F, K, K12, K21)  # or parameters = [ka, F, K, K12, K21]
+parameters = [ka, F, K, K12, K21]
 ``` 
 
 ### For single dose simulation :pill:.
