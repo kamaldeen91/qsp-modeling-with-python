@@ -68,7 +68,7 @@ mymodel.model_properties(time, conc)
 mymultimodel = MultipleDose(my_model, parameters, number_of_compartments=3, number_of_dose=3, interval=24)
 
 time_1, conc_1 = mymultimodel.simulation(simulation_time=5, time_unit='days', dose_mg=[100], compartment_pos=[2])
-# dose_mg = [100, 100, 100}
+# dose_mg can also be given as: dose_mg = [100, 100, 100}
 # This allow for possible change in dose during therapy, for instance dose_mg = [100, 75, 100]
 # It also for checking impact of incomplete dose, for instance dose_mg = [100, 0, 100]
 
@@ -78,8 +78,7 @@ mymultimodel.multi_dose_plot(simulation_time=100, time_unit='hrs', drug_doses=[1
 ```
 
 ### For multiple dose with delay simulation :pill: ... :pill: .. :pill:
-In addition to checking the effect of incomplete dose, pqsp can be used to check the effect of delay in drug dose
-num_dose = number of time to take, interval = time interval between drug intake 
+In addition to checking the effect of incomplete dose, pqsp can be used to check the effect of ***delay in drug dose***
 
 ```Python
 mydelaymodel = MultipleDoseDelay(my_model, parameters, number_of_compartments=3, number_of_dose=4, interval=24, 
