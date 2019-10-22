@@ -78,7 +78,7 @@ mymultimodel.multi_dose_plot(simulation_time=100, time_unit='hrs', drug_doses=[1
 ```
 
 ### For multiple dose with delay simulation :pill: ... :pill: .. :pill:
-In addition to checking the effect of incomplete dose, pqsp can be used to check the effect of ***delay in drug dose***
+In addition to checking the effect of incomplete dose as shown above, pqsp can be used to check the effect of ***delay in drug dose***
 
 ```Python
 mydelaymodel = MultipleDoseDelay(my_model, parameters, number_of_compartments=3, number_of_dose=4, interval=24, 
