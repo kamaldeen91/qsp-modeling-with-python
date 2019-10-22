@@ -146,13 +146,13 @@ mymulti_biov_delay.md_delay_vary_bioav_plot(simulation_time=8, time_unit='days',
 Run the single, multiple does (with and without delay) simulations for intravenous :syringe: version of my_model given by
 
 ```python
-def intravenous_model(y, t, ka, K, K12, K21, F):
+def intravenous_model(y, t, K, K12, K21):
     A1 = y[0]; A2 = y[1]
 
     dA1dt = - K12 * A1 - K * A1 + K21 * A2
     dA2dt = K12 * A1 - K21 * A2
 
-    return [dGdt, dA1dt, dA2dt]
+    return [dA1dt, dA2dt]
 
 Cl = 15.5; Vc = 368; Vd = 1060; Q = 16
 K12 = Q / Vc; K21 = Q / Vd; K = Cl / Vc
