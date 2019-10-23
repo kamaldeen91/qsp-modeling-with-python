@@ -7,12 +7,12 @@ The toolbox is developed by Kamaldeen :soccer: - a postdoctoral researcher in th
 ## Installation
 This software works with Python 3.7 and previous versions (and not Python 3.8 as scikit-learn tends not to work with the new 3.8 version). In addition ensure the following packages are running in the installed python version.
 
-### Windows
+#### Windows
 Clone this repository and install the pqsp package using:
 `pip install -e /path/to/script/folder`
 in the command line - allowing users to run code in different folder and using preferred IDE. :+1:
 
-### Mac OS
+#### Mac OS
 Navigate to the folder path in the terminal window and install pqsp using: `python setup.py install`
 
 ## Getting started
