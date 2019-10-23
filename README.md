@@ -5,7 +5,7 @@
 The toolbox is developed by Kamaldeen :soccer: - a postdoctoral researcher in the Jaline lab at Northwestern University.
 
 ## Installation
-This software works with Python 3.7 and previous versions (and not Python 3.8 as scikit-learn tends not to work with the new 3.8 version). In addition ensure the following packages are running in the installed python version.
+This software works with Python 3.7 and previous versions (and not Python 3.8 as scikit-learn tends not to work with the new 3.8 version). In addition ensure the following pre-requisite packages - numpy, pandas, scipy and scikit-learn, are installed.
 
 #### Windows
 Clone this repository and install the pqsp package using:
