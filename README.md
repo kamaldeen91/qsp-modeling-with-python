@@ -5,13 +5,15 @@
 The toolbox is developed by Kamaldeen :soccer: - a postdoctoral researcher in the Jaline lab at Northwestern University.
 
 ## Installation
+This software works with Python 3.7 and previous versions (and not Python 3.8 as scikit-learn tends not to work with the new 3.8 version). In addition ensure the following packages are running in the installed python version.
 
 ### Windows
-To install the pqsp package, clone this repository and run 
+Clone this repository and install the pqsp package using:
 `pip install -e /path/to/script/folder`
 in the command line - allowing users to run code in different folder and using preferred IDE. :+1:
 
 ### Mac OS
+Navigate to the folder path in the terminal window and install pqsp using: `python setup.py install`
 
 ## Getting started
 pqsp can be used to simulate a compartment model for QSP for ***single dose; multiple dose; and multiple dose with delay and with varying bioavailability***. In the preferred IDE, use the following command lines to import required functions and pacakages:
