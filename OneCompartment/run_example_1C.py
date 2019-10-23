@@ -1,6 +1,6 @@
 from OneCompartment.pk_1C_model_simulations import one_comp_single_dose_simulation, one_comp_multi_dose_simulation, one_comp_multi_dose_sim_delay
 
-from plot_simulations_with_AUC import plot_single_dose_output, plot_multi_dose_output, plot_multi_dose_delay_output
+from ModelPlots.plot_simulations_with_AUC import plot_single_dose_output, plot_multi_dose_output, plot_multi_dose_delay_output
 
 num_days = 10
 num_dose = 3

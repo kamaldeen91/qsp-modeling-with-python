@@ -1,5 +1,5 @@
 from PharmacokineticModeling.pk_model_sim_with_vary_F import multi_dose_delay_simulation_vary_bioav, multi_dose_simulation_vary_bioav
-from plot_simulations_with_AUC import plot_multi_dose_output, plot_multi_dose_delay_output, plot_single_dose_output
+from ModelPlots.plot_simulations_with_AUC import plot_single_dose_output
 import matplotlib.pyplot as plt
 
 from PharmacokineticModeling.pk_model_and_par import two_c_model, model_par_no_F

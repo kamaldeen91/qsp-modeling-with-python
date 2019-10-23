@@ -1,17 +1,15 @@
 import numpy as np
 from scipy.integrate import odeint
 import pandas as pd
-import matplotlib.pyplot as plt
 
-from simulation_time import time_for_single_dose, time_for_multi_dose, time_for_multi_dose_delay
+from SimulationTime.simulation_time import time_for_single_dose, time_for_multi_dose, time_for_multi_dose_delay
 from TwoCompartment.PK_model.two_comp_model_parameters import pk_two_comp_model_parameters
 from TwoCompartment.PK_model.two_comp_model import two_comp_model
 
-from PharmacokineticModeling.pk_model_simulations import single_dose_simulation, multi_dose_simulation, multi_dose_sim_delay
+from ModelPlots.plot_simulations_with_AUC import plot_single_dose_output
 
-from plot_simulations_with_AUC import plot_multi_dose_output, plot_multi_dose_delay_output, plot_single_dose_output
+from ModelPlots.model_simulation_plots import single_dose_plot
 
-from model_simulation_plots import single_dose_plot, multi_dose_plot, multi_dose_with_delay_plot
 
 ########################################################################################################################
 

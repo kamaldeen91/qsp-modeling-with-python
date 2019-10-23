@@ -1,7 +1,7 @@
 import pandas as pd
 
-from plot_simulations_with_AUC import plot_single_dose_output
-from model_simulation_plots import single_dose_plot
+from ModelPlots.plot_simulations_with_AUC import plot_single_dose_output
+from ModelPlots.model_simulation_plots import single_dose_plot
 
 from PharmacokineticModeling.pk_model_simulations import single_dose_simulation
 

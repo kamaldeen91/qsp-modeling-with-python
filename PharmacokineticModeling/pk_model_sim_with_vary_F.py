@@ -1,7 +1,7 @@
 import numpy as np
 
 from scipy.integrate import odeint
-from simulation_time import time_for_multi_dose, time_for_multi_dose_delay
+from SimulationTime.simulation_time import time_for_multi_dose, time_for_multi_dose_delay
 
 
 def multi_dose_simulation_vary_bioav(model, parameters_no_bioav, number_of_comp, simulation_time, time_unit, num_dose,

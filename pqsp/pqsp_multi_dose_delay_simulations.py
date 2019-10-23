@@ -1,9 +1,8 @@
 import numpy as np
-from scipy.integrate import odeint
 import pandas as pd
 
-from plot_simulations_with_AUC import plot_multi_dose_delay_output
-from model_simulation_plots import multi_dose_with_delay_plot
+from ModelPlots.plot_simulations_with_AUC import plot_multi_dose_delay_output
+from ModelPlots.model_simulation_plots import multi_dose_with_delay_plot
 
 from PharmacokineticModeling.pk_model_simulations import multi_dose_sim_delay
 

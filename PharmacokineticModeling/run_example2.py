@@ -1,9 +1,7 @@
 from PharmacokineticModeling.pk_model_simulations import single_dose_simulation, multi_dose_simulation, multi_dose_sim_delay
 
-from plot_simulations_with_AUC import plot_multi_dose_output, plot_multi_dose_delay_output, plot_single_dose_output
+from ModelPlots.plot_simulations_with_AUC import plot_multi_dose_output, plot_multi_dose_delay_output, plot_single_dose_output
 from PharmacokineticModeling.pk_model_and_par import my_model, model_parameters
-
-from model_simulation_plots import single_dose_plot, multi_dose_plot, multi_dose_with_delay_plot
 
 num_comp = 3
 

@@ -1,5 +1,5 @@
-from plot_simulations_with_AUC import plot_multi_dose_output
-from model_simulation_plots import multi_dose_vary_bioav_plot
+from ModelPlots.plot_simulations_with_AUC import plot_multi_dose_output
+from ModelPlots.model_simulation_plots import multi_dose_vary_bioav_plot
 
 from PharmacokineticModeling.pk_model_sim_with_vary_F import multi_dose_simulation_vary_bioav
 

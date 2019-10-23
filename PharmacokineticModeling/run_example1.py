@@ -1,4 +1,4 @@
-from model_simulation_plots import single_dose_plot, multi_dose_plot, multi_dose_with_delay_plot
+from ModelPlots.model_simulation_plots import single_dose_plot, multi_dose_plot, multi_dose_with_delay_plot
 from PharmacokineticModeling.pk_model_and_par import my_model, model_parameters
 
 num_days = 2

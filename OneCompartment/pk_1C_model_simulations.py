@@ -2,7 +2,7 @@ import numpy as np
 
 from scipy.integrate import odeint
 
-from simulation_time import time_for_single_dose, time_for_multi_dose, time_for_multi_dose_delay
+from SimulationTime.simulation_time import time_for_single_dose, time_for_multi_dose, time_for_multi_dose_delay
 
 from OneCompartment.one_comp_model import one_comp_model
 from OneCompartment.one_comp_model_parameters import pk_one_comp_model_parameters

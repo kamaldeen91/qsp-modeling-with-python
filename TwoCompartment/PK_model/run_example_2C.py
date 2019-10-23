@@ -1,11 +1,4 @@
-from TwoCompartment.PK_model.pk_2C_model_simulations import two_comp_multi_dose_simulation, \
-    two_comp_multi_dose_with_delay_simulation, two_comp_single_dose_simulation, SingleDose
-
-import matplotlib.pyplot as plt
-
-from model_simulation_plots import single_dose_plot, multi_dose_plot, multi_dose_with_delay_plot
-
-from plot_simulations_with_AUC import plot_multi_dose_output, plot_multi_dose_delay_output, plot_single_dose_output
+from TwoCompartment.PK_model.pk_2C_model_simulations import SingleDose
 
 
 def two_comp_model(y, t, K, K12, K21):
