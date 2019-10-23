@@ -1,5 +1,7 @@
 from setuptools import setup, find_packages
-from simtools.Utilities.General import files_in_dir
+# from simtools.Utilities.General import files_in_dir
+
+from General import files_in_dir
 
 setup(name='pqsp',
       version='pqsp_0.1.0',

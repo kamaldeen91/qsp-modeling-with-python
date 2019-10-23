@@ -45,7 +45,7 @@ class MultipleDoseVaryBioavDelay():
                         auc_start: int = 0, auc_end: any = 'inf', show_auc: bool = False, show_max: bool = False):
 
         plot_multi_dose_delay_output(time, conc, self.number_of_dose, self.interval, self.delay, figsize,
-                                     ylabel, yunit, show_max,show_auc, auc_start, auc_end)
+                                     ylabel, yunit, show_max, show_auc, auc_start, auc_end)
 
     ######################
 

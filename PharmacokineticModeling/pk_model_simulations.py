@@ -31,10 +31,13 @@ def multi_dose_simulation(model, model_parameters, number_of_comp, simulation_ti
     y0 = np.concatenate([[dose_mg[0]], np.zeros(number_of_comp - 1)])
     t = sim_time[0][0:]
 
-    if callable(model_parameters):
-        par = model_parameters()
+    if len(model_parameters) == 1:
+        par = tuple([model_parameters])
     else:
-        par = tuple(model_parameters)
+        if callable(model_parameters):
+            par = model_parameters()
+        else:
+            par = tuple(model_parameters)
 
     y = odeint(model, y0, t, par)
     yy = y; cconc = []; n_cc = []; nn_cc = []

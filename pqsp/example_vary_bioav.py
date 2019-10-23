@@ -19,17 +19,17 @@ par = [ka, K, K12, K21]
 
 #############################
 
-mymultimodel = MultipleDoseVaryBioav(two_c_model, par, number_of_compartments=3, number_of_dose=4, interval=24, bioav=[1, 0.51, 0.41, 0.6])
-tn, cn = mymultimodel.simulation(simulation_time=8, time_unit='days', dose_mg=[10])
-mymultimodel.plot_simulation(tn, cn, show_auc=True, show_max=True)
-mymultimodel.multi_dose_vary_bioav_plot(simulation_time=8, time_unit='days', drug_doses=[10,20,30],
-                                   compartment_pos=[0,1,2], figsize=(12,8))
+# mymultimodel = MultipleDoseVaryBioav(two_c_model, par, number_of_compartments=3, number_of_dose=4, interval=24, bioav=[1, 0.51, 0.41, 0.6])
+# tn, cn = mymultimodel.simulation(simulation_time=8, time_unit='days', dose_mg=[10])
+# mymultimodel.plot_simulation(tn, cn, show_auc=True, show_max=True)
+# mymultimodel.multi_dose_vary_bioav_plot(simulation_time=8, time_unit='days', drug_doses=[10,20,30],
+#                                    compartment_pos=[0,1,2], figsize=(12,8))
 
 
 #############################
 
 mymultimodel_delay = MultipleDoseVaryBioavDelay(two_c_model, par, number_of_compartments=3, number_of_dose=4, interval=24,
-                                                delay=[6,3,0], bioav=[1, 0.7, 0.9, 0.4])
+                                                delay=[6,3,5], bioav=[1, 0.7, 0.9, 0.4])
 tnn, cnn = mymultimodel_delay.simulation(simulation_time=8, time_unit='days', dose_mg=[10])
 mymultimodel_delay.plot_simulation(tnn, cnn, show_auc=True, show_max=True)
 mymultimodel_delay.md_delay_vary_bioav_plot(simulation_time=8, time_unit='days', drug_doses=[10, 20, 30],

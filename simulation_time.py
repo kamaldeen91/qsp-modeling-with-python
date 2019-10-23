@@ -45,7 +45,7 @@ def time_for_multi_dose(num, unit: str, num_dose, interval, plt_stp: float = 0.1
 def time_for_multi_dose_delay(num, unit: str, num_dose, interval, delay, plt_stp: float = 0.1):
 
     if num_dose - 1 != len(delay):
-        print('Error: please enter time delays')
+        raise Exception("You have to pass in  delay in simulation starting from second dose).\n")
 
     if unit == 'day' or unit == 'days' or unit == 'Day' or unit == 'Days':
         end = 24 * num
