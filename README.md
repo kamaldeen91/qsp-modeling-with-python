@@ -15,7 +15,7 @@ in the command line OR navigate to the folder path in the command window and ins
 #### Mac OS
 Navigate to the folder path in the terminal window and install pqsp using: `python setup.py install`
 
-- allowing users to run code in different folder and using preferred IDE. :+1:
+:+1:
 
 ## Getting started
 pqsp can be used to simulate a compartment model for QSP for ***single dose; multiple dose; and multiple dose with delay and with varying bioavailability***. In the preferred IDE, use the following command lines to import required functions and pacakages:
