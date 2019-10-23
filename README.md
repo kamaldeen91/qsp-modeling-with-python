@@ -5,9 +5,13 @@
 The toolbox is developed by Kamaldeen :soccer: - a postdoctoral researcher in the Jaline lab at Northwestern University.
 
 ## Installation
+
+### Windows
 To install the pqsp package, clone this repository and run 
 `pip install -e /path/to/script/folder`
 in the command line - allowing users to run code in different folder and using preferred IDE. :+1:
+
+### Mac OS
 
 ## Getting started
 pqsp can be used to simulate a compartment model for QSP for ***single dose; multiple dose; and multiple dose with delay and with varying bioavailability***. In the preferred IDE, use the following command lines to import required functions and pacakages:
