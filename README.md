@@ -9,7 +9,7 @@ This software works with Python 3.7 and previous versions (and not Python 3.8 as
 > Prerequisite - Python 3.7 (or previous release), numpy, pandas, scipy and scikit-learn
 
 #### Windows
-Clone this repository and install the pqsp package using:
+**Clone** this repository and install the pqsp package using:
 `pip install -e /path/to/script/folder`
 in the command line OR navigate to the folder path in the command window and install pqsp using: `python setup.py install`
 
