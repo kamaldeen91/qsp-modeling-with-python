@@ -10,12 +10,12 @@ This software works with Python 3.7 and previous versions (and not Python 3.8 as
 #### Windows
 Clone this repository and install the pqsp package using:
 `pip install -e /path/to/script/folder`
-in the command line OR navigate to the folder path in the terminal window and install pqsp using: `python setup.py install`
-
-- allowing users to run code in different folder and using preferred IDE. :+1:
+in the command line OR navigate to the folder path in the command window and install pqsp using: `python setup.py install`
 
 #### Mac OS
 Navigate to the folder path in the terminal window and install pqsp using: `python setup.py install`
+
+- allowing users to run code in different folder and using preferred IDE. :+1:
 
 ## Getting started
 pqsp can be used to simulate a compartment model for QSP for ***single dose; multiple dose; and multiple dose with delay and with varying bioavailability***. In the preferred IDE, use the following command lines to import required functions and pacakages:
