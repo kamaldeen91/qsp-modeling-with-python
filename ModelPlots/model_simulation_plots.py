@@ -6,7 +6,8 @@ import matplotlib.pyplot as plt
 
 #######################################################################################################################
 
-def single_dose_plot(model, model_parameters, number_of_compartments, drug_doses, simulation_time: any, time_unit: str, comp_num, yunit: str = 'ng/l', figsize: tuple=(8,5)):
+def single_dose_plot(model, model_parameters, number_of_compartments, drug_doses, simulation_time: any, time_unit: str,
+                     comp_num, yunit: str = 'ng/l', figsize: tuple=(8,5)):
 
     fig = plt.figure(figsize=figsize)
 

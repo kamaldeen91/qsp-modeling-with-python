@@ -11,10 +11,19 @@ def single_dose_simulation(model, model_parameters, number_of_comp, simulation_t
     sim_time = time_for_single_dose(simulation_time, time_unit)
     y0 = np.concatenate([[dose_mg[0]], np.zeros(number_of_comp - 1)])
 
-    if callable(model_parameters):
-        par = model_parameters()
-    else:
+    # if callable(model_parameters):
+    #     par = model_parameters()
+    # else:
+    #     par = tuple(model_parameters)
+
+    if not callable(model_parameters) and len(model_parameters) == 1:
         par = tuple(model_parameters)
+    else:
+        if callable(model_parameters):
+            par = model_parameters()
+        else:
+            par = tuple(model_parameters)
+
     y = odeint(model, y0, sim_time, par)
     conc = y[:, compartment_pos[0]]
     time = np.arange(0, len(conc)) / (1 / plt_stp)
@@ -31,7 +40,7 @@ def multi_dose_simulation(model, model_parameters, number_of_comp, simulation_ti
     y0 = np.concatenate([[dose_mg[0]], np.zeros(number_of_comp - 1)])
     t = sim_time[0][0:]
 
-    if len(model_parameters) == 1:
+    if not callable(model_parameters) and len(model_parameters) == 1:
         par = tuple([model_parameters])
     else:
         if callable(model_parameters):
@@ -87,10 +96,18 @@ def multi_dose_sim_delay(model, model_parameters, number_of_comp, simulation_tim
     y0 = np.concatenate([[dose_mg[0]], np.zeros(number_of_comp - 1)])
     t = np.concatenate([sim_time[0][0:], sim_time[1][1:int(delay[0] / plt_stp) + 1]])
 
-    if callable(model_parameters):
-        par = model_parameters()
+    if not callable(model_parameters) and len(model_parameters) == 1:
+        par = tuple([model_parameters])
     else:
-        par = tuple(model_parameters)
+        if callable(model_parameters):
+            par = model_parameters()
+        else:
+            par = tuple(model_parameters)
+
+    # if callable(model_parameters):
+    #     par = model_parameters()
+    # else:
+    #     par = tuple(model_parameters)
 
     y = odeint(model, y0, t, par)
 

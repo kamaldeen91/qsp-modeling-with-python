@@ -1,6 +1,8 @@
-from PharmacokineticModeling.pk_model_simulations import single_dose_simulation, multi_dose_simulation, multi_dose_sim_delay
+from PharmacokineticModeling.pk_model_simulations import single_dose_simulation, multi_dose_simulation, \
+    multi_dose_sim_delay
 
-from ModelPlots.plot_simulations_with_AUC import plot_multi_dose_output, plot_multi_dose_delay_output, plot_single_dose_output
+from ModelPlots.plot_simulations_with_AUC import plot_multi_dose_output, plot_multi_dose_delay_output, \
+    plot_single_dose_output
 from PharmacokineticModeling.pk_model_and_par import my_model, model_parameters
 
 num_comp = 3
@@ -14,13 +16,12 @@ interval = 12
 
 delay = [4, 0]
 
-dose_mg = [100,0,100]
+dose_mg = [100,100,100]
 comp = range(num_comp)
 
 ka = 1.8; F = 0.89
 K12 = 0.7; K21 = 0.3
-#K13 = 0.01; K31 = 0.002
-#K14 = 0.001; K41 = 0.003
+
 
 K = 0.28
 par = (ka, F, K12, K21, K)

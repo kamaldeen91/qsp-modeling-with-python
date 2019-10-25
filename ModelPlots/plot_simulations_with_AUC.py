@@ -5,7 +5,6 @@ from sklearn.metrics import auc
 
 import matplotlib.pyplot as plt
 import matplotlib.ticker as ticker
-from itertools import chain
 
 
 def plot_multi_dose_delay_output(time, C, num_dose, interval, delay, figsize: tuple=(12,6),

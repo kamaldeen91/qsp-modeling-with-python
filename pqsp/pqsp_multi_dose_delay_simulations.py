@@ -3,6 +3,7 @@ import pandas as pd
 
 from ModelPlots.plot_simulations_with_AUC import plot_multi_dose_delay_output
 from ModelPlots.model_simulation_plots import multi_dose_with_delay_plot
+from ModelPlots.dose_auc_plot import multi_dose_delay_auc_plot
 
 from PharmacokineticModeling.pk_model_simulations import multi_dose_sim_delay
 
@@ -50,6 +51,15 @@ class MultipleDoseDelay():
 
         multi_dose_with_delay_plot(self.model, self.model_parameters, self.number_of_compartments, drug_doses, simulation_time, time_unit, self.number_of_dose,
                                    self.interval, self.delay, compartment_pos, yunit, figsize, show_hstep)
+
+    ######################
+
+    def dose_auc_plot(self, simulation_time, time_unit: str, drug_doses, compartment_pos, auc_start: any=0, auc_end: any='inf',
+                      show_auc_value: bool = True, yunit: str = 'ng/l', figsize: tuple = (10, 6)):
+
+        multi_dose_delay_auc_plot(self.model, self.model_parameters, self.number_of_compartments, drug_doses, simulation_time,
+                            time_unit, self.number_of_dose, self.interval, self.delay, compartment_pos, auc_start, auc_end,
+                            show_auc_value, yunit, figsize)
 
     ######################
 

@@ -2,6 +2,7 @@ import pandas as pd
 
 from ModelPlots.plot_simulations_with_AUC import plot_single_dose_output
 from ModelPlots.model_simulation_plots import single_dose_plot
+from ModelPlots.dose_auc_plot import single_dose_auc_plot
 
 from PharmacokineticModeling.pk_model_simulations import single_dose_simulation
 
@@ -38,8 +39,16 @@ class SingleDose():
 
     def single_dose_plot(self, simulation_time, time_unit, drug_doses, compartment_pos, yunit: str = 'ng/l', figsize: tuple = (8, 5)):
 
-        single_dose_plot(self.model, self.model_parameters, self.number_of_compartments, drug_doses, simulation_time, time_unit,
-                         compartment_pos, yunit, figsize)
+        single_dose_plot(self.model, self.model_parameters, self.number_of_compartments, drug_doses, simulation_time,
+                         time_unit, compartment_pos, yunit, figsize)
+
+    ######################
+
+    def dose_auc_plot(self, simulation_time, time_unit, drug_doses, compartment_pos, auc_start: any=0, auc_end: any='inf',
+                      show_auc_value: bool = True, yunit: str = 'ng/l', figsize: tuple = (8, 5)):
+
+        single_dose_auc_plot(self.model, self.model_parameters, self.number_of_compartments, drug_doses, simulation_time,
+                             time_unit, compartment_pos, auc_start, auc_end, show_auc_value, yunit, figsize)
 
     ######################
 
