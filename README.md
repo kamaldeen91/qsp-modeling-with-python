@@ -69,7 +69,7 @@ mymodel.single_dose_plot(simulation_time=20, time_unit='hrs', drug_doses=[100, 4
 
 mymodel.dose_auc_plot(simulation_time=3, time_unit='days', drug_doses=[100, 200, 300, 400, 500], compartment_pos=[1], auc_start=0, auc_end=30, figsize=(8,5))
 # This code plot the dose vs AUC of the model for different doses and AUC region specified
-# When auc_start and auc_end are not indicated, the plot show result for auc_start = 0 and auc_end = \infty
+# When auc_start and auc_end are not indicated, the plot show result for auc_start = 0 and auc_end = inf
 
 mymodel.model_properties(time, conc)
 # This line output the Cmax and corresponding Tmax of the model
@@ -107,6 +107,8 @@ time_2, conc_2 = mydelaymodel.simulation(simulation_time=5, time_unit='days', do
 mydelaymodel.plot_simulation(time_3, conc_3, show_max=True, show_auc=True)
 
 mydelaymodel.multi_dose_delay_plot(simulation_time=5,time_unit='days',drug_doses=[100, 400, 800],compartment_pos=range(3),figsize=(16,12))
+
+mydelaymodel.dose_auc_plot(simulation_time=5, time_unit='days', drug_doses=[100,200, 300], compartment_pos=[1])
 ```
 
 ### For multiple dose with varying bioavailability
@@ -155,7 +157,7 @@ mymulti_biov_delay.md_delay_vary_bioav_plot(simulation_time=8, time_unit='days',
 ##
 
 ### Assignment :syringe:
-Run the single, multiple does (with and without delay) simulations for intravenous :syringe: version of my_model given by
+1. Run the single, multiple does (with and without delay) simulations for intravenous :syringe: version of my_model given by
 
 ```python
 def intravenous_model(y, t, K, K12, K21):
@@ -170,3 +172,11 @@ Cl = 15.5; Vc = 368; Vd = 1060; Q = 16
 K12 = Q / Vc; K21 = Q / Vd; K = Cl / Vc
 parameters = [K, K12, K21]
 ```
+
+2. Run the single, multiple does (with and without delay) simulations for any model of your choice.
+
+##
+
+### Common errors
+Below are some of errors/mistakes that might be made when executing the code
+
