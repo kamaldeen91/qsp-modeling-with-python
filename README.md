@@ -7,14 +7,14 @@ The toolbox is developed by Kamaldeen :soccer: - a postdoctoral researcher in th
 ## Installation
 This software works with Python 3.7 and previous versions (and not Python 3.8 as scikit-learn tends not to work with the new 3.8 version). In addition ensure the following prerequisite packages - numpy, pandas, scipy and scikit-learn, are installed.
 > Prerequisite - Python 3.7 (or previous release), numpy, pandas, scipy and scikit-learn
-
+**Clone** or **download** this repository
 #### Windows
-**Clone** or **download** this repository and install the pqsp package using:
+Install the pqsp package using:
 `pip install -e /path/to/script/folder`
-in the command line OR navigate to the folder path in the command window and install pqsp using: `python setup.py install`
+in the command line OR navigate to the downloaded pqsp folder path in the command window and install pqsp using: `python setup.py install`
 
 #### Mac OS
-Navigate to the folder path in the terminal window and install pqsp using: `python setup.py install`
+Navigate to the downloaded pqsp folder path in the terminal window and install pqsp using: `python setup.py install`
 
 :+1:
 
