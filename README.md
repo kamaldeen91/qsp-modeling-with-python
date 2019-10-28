@@ -6,7 +6,7 @@ The toolbox is developed by Kamaldeen :soccer: - a postdoctoral researcher in th
 
 ## Installation
 This software works with Python 3.7 or previous versions. In addition ensure the following prerequisite packages - numpy, pandas and scipy. are installed.
-> Prerequisite - Python 3.7 (or previous release), numpy, pandas, scipy and scikit-learn
+> Prerequisite - Python 3.7 (or previous release), numpy, pandas and scipy.
 
 First **Clone** or **download** this repository
 
