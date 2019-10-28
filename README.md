@@ -170,3 +170,5 @@ parameters = [K, K12, K21]
 ```
 
 2. Run simulations for single, multiple does with and without delay, and with varied bioavaialabilty for any model(s) of your choice.
+
+3. What are some of the errors you encountered when running the simulations and how did you correct them (eventually)?
