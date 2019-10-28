@@ -70,9 +70,6 @@ mysinglemodel.single_dose_plot(simulation_time=20, time_unit='hrs', drug_doses=[
 mysinglemodel.dose_auc_plot(simulation_time=3, time_unit='days', drug_doses=[100, 200, 300, 400, 500], compartment_pos=[1], auc_start=0, auc_end=30, figsize=(8,5))
 # This code plot the dose vs AUC of the model for different doses and AUC region specified
 # When auc_start and auc_end are not indicated, the plot show result for auc_start = 0 and auc_end = inf
-
-mysinglemodel.model_properties(time, conc)
-# This line output the Cmax and corresponding Tmax of the model
 ```
 
 ### For multiple dose simulation :pill:.:pill:.:pill:.
