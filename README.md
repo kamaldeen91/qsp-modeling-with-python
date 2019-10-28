@@ -5,7 +5,7 @@
 The toolbox is developed by Kamaldeen :soccer: - a postdoctoral researcher in the Jaline lab at Northwestern University.
 
 ## Installation
-This software works with Python 3.7 and previous versions (and not Python 3.8 as scikit-learn tends not to work with the new 3.8 version). In addition ensure the following prerequisite packages - numpy, pandas, scipy and scikit-learn, are installed.
+This software works with Python 3.7 or previous versions. In addition ensure the following prerequisite packages - numpy, pandas and scipy. are installed.
 > Prerequisite - Python 3.7 (or previous release), numpy, pandas, scipy and scikit-learn
 
 First **Clone** or **download** this repository
