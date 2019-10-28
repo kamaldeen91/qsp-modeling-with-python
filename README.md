@@ -54,18 +54,22 @@ model_sd = SingleDose(my_model, parameters, number_of_compartments=3)
 # Although model above is a two-compartmental pk model, the number of compartment defined in the simulation is the number of ODE equations defined in the model
 
 time, conc = model_sd.simulation(simulation_time=2, time_unit='days', dose_mg=[100], compartment_pos=[1])
-# This line simulate the model at initial drug concentration of 100 mg for 2 days 
+# This code simulate the model at initial drug concentration of 100 mg for 2 days 
 # The result output is for the second compartment - compartment_pos=[1]: remember Python counts from 0
 # This simulation also be written as - model_sd.simulation(simulation_time=24, time_unit='hrs', dose_mg=[100], compartment_pos=[1])
 # i.e., for 24 hrs
     
 mymodel.plot_simulation(time, conc, show_max=True, show_auc=True, auc_start=2, auc_end=30)
-# This line plots the simulation output from previous command line and will show (if show_max = True) the Cmax (and corresponding tmax)
+# This code plots the simulation output from previous command line and will show (if show_max = True) the Cmax (and corresponding tmax)
 # This function will also show the AUC from auc_start to auc_end (auc_start = 0 and auc_start = 'inf' if not indicated)
 # Note that one could easily plot the time vs conc using different plot function
 
 mymodel.single_dose_plot(simulation_time=20, time_unit='hrs', drug_doses=[100, 400, 800], compartment_pos=[0, 1, 2], figsize=(16,8))
-# This line code allow for plotting the model for different initial doses and for different compartments of the model
+# This code allow for plotting the model for different initial doses and for different compartments of the model
+
+mymodel.dose_auc_plot(simulation_time=3, time_unit='days', drug_doses=[100, 200, 300, 400, 500], compartment_pos=[1], auc_start=0, auc_end=30, figsize=(8,5))
+# This code plot the dose vs AUC of the model for different doses and AUC region specified
+# When auc_start and auc_end are not indicated, the plot show result for auc_start = 0 and auc_end = \infty
 
 mymodel.model_properties(time, conc)
 # This line output the Cmax and corresponding Tmax of the model
@@ -84,6 +88,9 @@ time_1, conc_1 = mymultimodel.simulation(simulation_time=5, time_unit='days', do
 mymultimodel.plot_simulation(time_1, conc_1, show_max=True, show_auc=True)
 
 mymultimodel.multi_dose_plot(simulation_time=100, time_unit='hrs', drug_doses=[100, 400, 800],compartment_pos=range(3),figsize=(14,9))
+
+mymultimodel.dose_auc_plot(simulation_time=3, time_unit='days', drug_doses=[100, 400, 800], compartment_pos=[1])
+
 ```
 
 ### For multiple dose with delay simulation :pill: ... :pill: .. :pill:
