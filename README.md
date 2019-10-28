@@ -154,7 +154,7 @@ mymulti_biov_delay.md_delay_vary_bioav_plot(simulation_time=8, time_unit='days',
 ##
 
 ### Assignment :syringe:
-1. Run the single, multiple does (with and without delay) simulations for intravenous :syringe: version of my_model given by
+1. Run a single and multiple does (with and without delay) simulations for an intravenous :syringe: model given by
 
 ```python
 def intravenous_model(y, t, K, K12, K21):
@@ -170,4 +170,4 @@ K12 = Q / Vc; K21 = Q / Vd; K = Cl / Vc
 parameters = [K, K12, K21]
 ```
 
-2. Run the single, multiple does (with and without delay) simulations for any model of your choice.
+2. Run a single, multiple does (with and without delay) simulations for any model of your choice.
