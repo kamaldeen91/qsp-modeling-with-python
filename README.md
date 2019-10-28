@@ -8,7 +8,8 @@ The toolbox is developed by Kamaldeen :soccer: - a postdoctoral researcher in th
 This software works with Python 3.7 and previous versions (and not Python 3.8 as scikit-learn tends not to work with the new 3.8 version). In addition ensure the following prerequisite packages - numpy, pandas, scipy and scikit-learn, are installed.
 > Prerequisite - Python 3.7 (or previous release), numpy, pandas, scipy and scikit-learn
 
-**Clone** or **download** this repository
+First **Clone** or **download** this repository
+
 #### Windows
 Install the pqsp package using:
 `pip install -e /path/to/script/folder`
