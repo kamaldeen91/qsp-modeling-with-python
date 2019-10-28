@@ -170,4 +170,4 @@ K12 = Q / Vc; K21 = Q / Vd; K = Cl / Vc
 parameters = [K, K12, K21]
 ```
 
-2. Run a single, multiple does (with and without delay) simulations for any model of your choice.
+2. Run simulations for single, multiple does with and without delay, and with varied bioavaialabilty for any model(s) of your choice.
