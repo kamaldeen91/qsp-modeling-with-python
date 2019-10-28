@@ -124,8 +124,7 @@ ka = 0.17; Cl = 15.5; Vc = 368; Vd = 1060; Q = 16
 K12 = Q / Vc; K21 = Q / Vd; K = Cl / Vc
 par = [ka, K, K12, K21]
 ```
-Observe that when defining **two_c_model** in this case, we ensured that F is listed as the last entry in the function.
-Always ensure this when executing thr code for varied bioavailability!
+When defining model (**two_c_model**) above, we ensured that the bioavailability parameter $F$ is listed as the last entry in the function. Always ensure this when executing the code for varied bioavailability
 
 The simulation of the model is given as follows
 
