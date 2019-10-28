@@ -125,7 +125,7 @@ K12 = Q / Vc; K21 = Q / Vd; K = Cl / Vc
 par = [ka, K, K12, K21]
 ```
 Observe that when defining **two_c_model** in this case, we ensured that F is listed as the last entry in the function.
-Always ensure this when executing thr code for varied bioavailability! *If I had ran the simulation for my_model function, the output would be wrong! This can be fixed by rearraging parameters in the parentheses for my_model function, for instance as: my_model(y, t, ka, K, K12, K21, F).*
+Always ensure this when executing thr code for varied bioavailability!
 
 The simulation of the model is given as follows
 
