@@ -174,9 +174,3 @@ parameters = [K, K12, K21]
 ```
 
 2. Run the single, multiple does (with and without delay) simulations for any model of your choice.
-
-##
-
-### Common errors
-Below are some of errors/mistakes that might be made when executing the code
-
