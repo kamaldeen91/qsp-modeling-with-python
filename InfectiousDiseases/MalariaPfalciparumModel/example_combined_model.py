@@ -1,8 +1,7 @@
-from InfectiousDiseases.MalariaPfalciparumModel.within_host_models import pf_dynamics
-from InfectiousDiseases.MalariaPfalciparumModel.integrated_models import pop_pkpd
-from InfectiousDiseases.MalariaPfalciparumModel.plot_combined_models import pop_model_output
-
+from InfectiousDiseases.MalariaPfalciparumModel.Malaria_wh_model_plus_PKPD import WH_PKPD
 from pqsp.pqsp_multi_dose_simulations import MultipleDose
+from InfectiousDiseases.MalariaPfalciparumModel.within_host_models import pf_dynamics
+
 
 pop_df = pf_dynamics(2000)
 
@@ -23,12 +22,13 @@ Q = 16; K12 = Q / Vc; K21 = Q / Vd; K = Cl / Vc
 par = (ka, F, K, K12, K21)
 
 mymultimodel = MultipleDose(model, par, number_of_compartments=3, number_of_dose=3, interval=8)
+time, conc = mymultimodel.simulation(simulation_time=43, time_unit='days', dose_mg=[1000, 1000, 1000], compartment_pos=[1])
 
-tc, C = mymultimodel.simulation(simulation_time=55, time_unit='days', dose_mg=[1000, 1000, 1000], compartment_pos=[1])
 
+combined_model = WH_PKPD(time, conc, 0.5/24, 15, 500, 2, pop_df)
 
-mus = 0.5/24
+combined_model.plot_model()
 
-t_df, dynamics_with_drug, drug_start = pop_pkpd(15, 500, 2, tc, C, mus, pop_df)
-
-pop_model_output(t_df, C, drug_start, pop_df, dynamics_with_drug, show_irbc=True, show_g=False)
+combined_model.parasite_reduction_ratio()
+combined_model.parasite_clearance_time()
+combined_model.recrudescence(end=43*24)

@@ -20,13 +20,13 @@ def pf_model(y, t, pix, beta, mux, sigma, mus, mum, gamma, mug):
 
 
 def pf_dynamics(time):
-    y0 = [1e10, 1e6, 0, 0]
+    init = [1e10, 1e6, 0, 0]
 
     t_step = 0.1; t = np.arange(0, time, t_step)
 
     par = pf_model_parameters()
 
-    y = odeint(pf_model_with_imm, y0, t, par)
+    y = odeint(pf_model, init, t, par)
 
     x = y[:, 0]; m = y[:, 1]; s = y[:, 2]; g = y[:, 3]
 
@@ -35,6 +35,8 @@ def pf_dynamics(time):
 
     return dynamics_df
 
+
+###########################################################################################################
 
 def pf_model_with_imm(y, t, pix, beta, mux, sigma, mus, mum, gamma, mug,
                   theta, c0, c1, deltam, deltas, mub, lambdab, mua, num,
@@ -54,13 +56,13 @@ def pf_model_with_imm(y, t, pix, beta, mux, sigma, mus, mum, gamma, mug,
 
 
 def pf_dynamics_with_imm(time):
-    y0 = [1e10, 1e6, 0, 0, 0, 0]
+    init = [1e10, 1e6, 0, 0, 0, 0]
 
     t_step = 0.1; t = np.arange(0, time, t_step)
 
     par = pf_model_with_imm_parameters()
 
-    y = odeint(pf_model_with_imm, y0, t, par)
+    y = odeint(pf_model_with_imm, init, t, par)
 
     x = y[:, 0]; m = y[:, 1]; s = y[:, 2]; g = y[:, 3]
     b = y[:, 4]; a = y[:, 5]

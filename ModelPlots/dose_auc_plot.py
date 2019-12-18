@@ -98,6 +98,7 @@ def multi_dose_auc_plot(model, model_parameters, number_of_compartments, drug_do
                 ax.text(x[j], y[j], y[j], fontsize=12, color='g', alpha=0.7)
 
     plt.show()
+    # fig.savefig('Dose_AUC_plot.pdf')
 
 
 #######################################################################################################################
